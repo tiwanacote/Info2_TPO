@@ -4,6 +4,11 @@
  * @date 7/8/2017
  * @brief Este archivo es solo de desarrollo. Permite probar las funciones de validaciones de strings que legan desde el puerto de comunicación
  * 
+ * Compilación: gcc unit_test_validacion.c -o validacion
+ * 
+ * Run: ./validacion
+ * 
+ * 
  */
 
 
