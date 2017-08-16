@@ -22,8 +22,8 @@
 
 
 int g01_validation_range (int *vector_in, int *min_pos_vector, int *max_pos_vector, int *G01_max_f_vector, int length);
-
-int main(void)
+int main2();
+int main2(void)
 {
 	int resultado;
 	
@@ -48,7 +48,7 @@ int main(void)
 	int fm  = 600;	// Velocidad en grados por segundo de la muñeca. Se usa en G01
 	int fc  = 700;	// Velocidad en grados por segundo del codo. Se usa en G01
 	
-	int f   = 350;	// Velocidad en grados por segundo general.Se usa solo en G02
+//	int f   = 350;	// Velocidad en grados por segundo general.Se usa solo en G02
 	
 	int G01_vector[G01_LENGTH]={d0,d1,d2,d3,d4,m,c,fd0,fd1,fd2,fd3,fd4,fm,fc};	// Vector de posición con velocidades independientes
 	
@@ -83,7 +83,7 @@ int main(void)
 	int max_f_m  = 1000;	// Velocidad  máxima en grados por segundo de la muñeca. Se usa en G01
 	int max_f_c  = 1000;	// Velocidad  máxima en grados por segundo del codo. Se usa en G01
 	
-	int max_f   = 350;	// Velocidad en grados por segundo general.Se usa solo en G02
+	//int max_f   = 350;	// Velocidad en grados por segundo general.Se usa solo en G02
 	
 	int G01_min_pos_vector[G01_VAL_LENGTH] = {min_pos_d0, min_pos_d1, min_pos_d2, min_pos_d3, min_pos_d4, min_pos_m, min_pos_c};	// Vector de posiciones mínimas
 	int G01_max_pos_vector[G01_VAL_LENGTH] = {max_pos_d0, max_pos_d1, max_pos_d2, max_pos_d3, max_pos_d4, max_pos_m, max_pos_c};	// Vector de posiciones máximas
