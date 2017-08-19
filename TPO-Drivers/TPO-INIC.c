@@ -47,8 +47,8 @@ void Inicializar_Timer(void)
 	PCONP |= 1 << 1 ;
 	PCLKSEL0 |= 0 << 2 ;
 
-	T0MR0 = 0x7fffff;		// Configuro el tiempo del match 0
-	T0MR1 = 0xffffff ;		// Configuro el tiempo del match 1
+	T0MR0 = 0x838; //000409;    //0x7fffff;		// Configuro el tiempo del match 0 (Número de cuenta)
+	T0MR1 = 0xffffff;//1E8480; //ffffff ;		// Configuro el tiempo del match 1
 
 	//...............;	// Contador de pulsos falling edge en P1.26
 	//...............;	// Pone en cero los bits de control del CAP0.0
@@ -65,7 +65,7 @@ void Inicializar_Timer(void)
 	ISER0 |= ( 1 << NVIC_TIMER0 ) ;
 }
 
-void TIMER0_IRQHandler (void)
+/*void TIMER0_IRQHandler (void)
 {
     if( T0IR & ( 1 << IRMR0 ) )	// Si interrumpio Match 0
 	{
@@ -79,3 +79,4 @@ void TIMER0_IRQHandler (void)
     	SetPIN( 0 , 22 , 0 ) ;			// puerto = 0 , pin =  22 ; estado = 0
     }
 }
+*/
