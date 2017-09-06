@@ -41,6 +41,24 @@ void SetPIN( uint8_t puerto , uint8_t pin , uint8_t estado )
 	GPIO[ puerto ] = GPIO[ puerto ] | ( estado << pin );
 }
 
+void SetPINes( uint8_t puerto , uint8_t estado_motores[] )
+{
+	uint8_t temp = 0;
+	uint8_t i = 0;
+
+
+	puerto = puerto * 8 + 5;
+
+	for (i=0 ; i < 8 ; i++)  // Agregar #define CANT_MOTORES 8
+	{
+		temp = temp & ( ~ ( estado_motores[i] << i ) );
+		temp = temp | ( estado_motores[i] << i );
+	}
+
+	GPIO[ puerto ] = GPIO[ puerto ] & ( ~ ( temp << 16 ) );
+	GPIO[ puerto ] = GPIO[ puerto ] | ( temp << 16 );
+}
+
 /********************************************************************************
 	\fn  uint8_t GetPIN( uint8_t puerto , uint8_t pin , uint8_t actividad )
 	\brief Devuelve el ESTADO de un determinado PIN de un determinado PUERTO.
