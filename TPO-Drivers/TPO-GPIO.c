@@ -3,8 +3,8 @@
 TPO-GPIO
 ===============================================================================
 */
-#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Infotronic.h"
-
+//#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Infotronic.h"
+#include <Infotronic.h>
 
 /********************************************************************************
 	\fn  void void SetDIR( uint8_t puerto , uint8_t pin , uint8_t dir )
@@ -41,22 +41,37 @@ void SetPIN( uint8_t puerto , uint8_t pin , uint8_t estado )
 	GPIO[ puerto ] = GPIO[ puerto ] | ( estado << pin );
 }
 
+/********************************************************************************
+	\fn  void void SetPINes( uint8_t puerto , uint8_t estado_motores[])
+	\brief Función en la que entra un vector con los estados (0=bajo o 1=alto) para
+		los pines de salida (En total son 8). La información es concatenada en una
+		variable de 8bits, luego es acomoada en una variable de 32 bits (Del tamaño
+		del puerto de salida) y finalmente se escriben los estados de una sola vez
+	\author & date: 10/09/2017 - Maximiliano Bertotto
+ 	\param [in] puerto: 	puerto con el que se va a trabajar
+ 	\param [in] estado_motores[]: vector con los estados (0=bajo o 1=alto) para
+		los pines de salida de los servos
+	\return void
+*/
 void SetPINes( uint8_t puerto , uint8_t estado_motores[] )
 {
-	uint8_t temp = 0;
+	uint8_t temp1 = 0;
+	uint32_t temp2 = 0;
 	uint8_t i = 0;
 
 
 	puerto = puerto * 8 + 5;
 
+	// Convierto el vector "estado_motores[7]" en un entero de 8 bits
 	for (i=0 ; i < 8 ; i++)  // Agregar #define CANT_MOTORES 8
 	{
-		temp = temp & ( ~ ( estado_motores[i] << i ) );
-		temp = temp | ( estado_motores[i] << i );
+		temp1 = temp1 & ( ~ ( estado_motores[i] << i ) );
+		temp1 = temp1 | ( estado_motores[i] << i );
 	}
 
-	GPIO[ puerto ] = GPIO[ puerto ] & ( ~ ( temp << 16 ) );
-	GPIO[ puerto ] = GPIO[ puerto ] | ( temp << 16 );
+	temp2 = GPIO[ puerto ] & ( ~ ( 0xff << 16 ) );	// Aseguro 8 ceros a partir del bit 16: "Máscara"
+	GPIO[ puerto ] = temp2 | ( temp1 << 16 );		// Escribo en el puerto temp2 con los pines del 16 al 24 modificados
+
 }
 
 /********************************************************************************
