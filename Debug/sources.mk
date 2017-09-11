@@ -17,5 +17,6 @@ SUBDIRS := \
 .metadata/.plugins/org.eclipse.cdt.make.core \
 TPO-Aplicacion \
 TPO-Drivers \
+TPO-Primitivas \
 tools \
 

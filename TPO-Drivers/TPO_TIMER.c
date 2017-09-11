@@ -7,12 +7,17 @@
 
 #include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Infotronic.h"
 
+
+uint32_t cont_periodo = 0;  						// Contador de la cantidad de períodos de 20ms - Global
+uint8_t pos_motor[8] = {54,54,54,54,54,54,54,54}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
+uint8_t flag_dead_time = 0; 						// Avisa cuando aparece el tiempo muerto utilizable para poder hacer los cálculos de la siguiente posición
+
+
 void TIMER0_IRQHandler (void)
 {
 
 	static uint32_t cont_match0 = 0;
-	static uint8_t vector[8]; // Agregar #define CANT_MOTORES 8
-	uint32_t pos_m0 = 54, pos_m1 = 500;
+	static uint8_t vector[7]; // Agregar #define CANT_MOTORES 8
 
 
 	T0IR = ( 1 << IRMR0 );	// Borro flag del Match 0
@@ -20,10 +25,10 @@ void TIMER0_IRQHandler (void)
 	cont_match0++;
 
 	// Cuando definamos el vector de posición dejar el ciclo FOR y sacar el resto de los IF
-	//for(int i = 0; i<8 ; i++)
-	//	if(cont_match0 == pos_motor[i])
-	//		vector[i]=0;
-
+	for(int i = 0; i<8 ; i++)
+		if(cont_match0 == pos_motor[i])
+			vector[i]=0;
+/*
 	if(cont_match0 == pos_m0)
 		vector[0] = 0; // P0.16
 	if(cont_match0 == pos_m1)
@@ -40,13 +45,21 @@ void TIMER0_IRQHandler (void)
 		vector[6] = 0; // P0.22
 	if(cont_match0 == pos_m1)
 		vector[7] = 0;  // P0.23
+*/
 
 	SetPINes( 0 , vector );
 
 
-	if(cont_match0 == 2000 )  // llego al final del ciclo de 20ms
+	if(cont_match0 == 250 )
+		flag_dead_time = 1;
+
+
+	// llego al final del ciclo de 20ms
+	if(cont_match0 == 2000 )
 	{
 		cont_match0 = 0;
+		cont_periodo ++;
+		flag_dead_time = 0;
 
 		// lleno el vector con unos: Estados alto
 		for(int i=0; i<8 ; i++)
@@ -55,51 +68,10 @@ void TIMER0_IRQHandler (void)
 		SetPINes( 0 , vector );   // Levanto los pulsos
 	}
 
-/*
- *
- * Mueve el servo de 0° a 180° cada algunos segundos
- *
-	static uint32_t cont_match0 = 0;
-	static uint32_t cont_motor = 0;
-	static uint32_t flag_a = 0;
 
-	if( T0IR & ( 1 << IRMR0 ) )	// Si interrumpio Match 0
-	{
-		T0IR = ( 1 << IRMR0 );	// Borro flag del Match 0
-		cont_match0++;
-
-		if(cont_match0 == 54 && flag_a==0)	// 54 = (2,7% x 20ms) / 0.01ms   0.01 son aproximadamente las 1033 cuentas
-		// Llegamos al 2.7%
-		{
-			SetPIN( 0 , 22 , 0 ) ;	// puerto = 0 , pin =  22  , estado = 0
-		}
-
-		if(cont_match0 == 240 && flag_a==1)	// 54 = (2,7% x 20ms) / 0.01ms   0.01 son aproximadamente las 1033 cuentas
-		// Llegamos al 2.7%
-		{
-			SetPIN( 0 , 22 , 0 ) ;	// puerto = 0 , pin =  22  , estado = 0
-		}
-
-		if(cont_match0 == 2000 )  // llego al final del ciclo de 20ms
-		{
-			cont_match0 = 0;
-			SetPIN( 0 , 22 , 1 ) ;   // Levato el pulso
-			cont_motor++;	// Para cambiar la posicion del motor (Solo prueba)
-		}
-		if(cont_motor==25)
-		{
-
-			if (flag_a==1)
-				flag_a=0;
-			else
-				flag_a=1;
-
-			cont_motor=0;
-		}
-	}
-
-*/
-
+	// Protege que cont_periodo haga overflow cuando los motores no se usan
+	if (cont_periodo == 10000)  // Poner #DEFINE
+		cont_periodo = 0;
 
 }
 
