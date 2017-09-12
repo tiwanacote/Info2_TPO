@@ -1,6 +1,6 @@
 
-#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Infotronic.h"
-
+//#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Infotronic.h"
+#include <Infotronic.h>
 /********************************************************************************
 	\fn  void InitPLL (void)
 	\brief: Este bloque de codigo habilita el oscilador externo como fuente de clk

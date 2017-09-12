@@ -44,6 +44,8 @@ Archive member included to satisfy reference by file (symbol)
                               /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(_cr_sbrk.o) (__check_heap_overflow)
 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(double.o)
                               /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(fpprintf.o) (__aeabi_dmul)
+/usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+                              ./TPO-Primitivas/cinematica.o (__aeabi_fdiv)
 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(memcpy.o)
                               /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(memcpy.o) (__aeabi_memcpy)
 
@@ -443,6 +445,45 @@ Discarded input sections
  .comment       0x00000000       0x6f /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(double.o)
  .ARM.attributes
                 0x00000000       0x33 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(double.o)
+ .text          0x00000000        0x0 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .data          0x00000000        0x0 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .bss           0x00000000        0x0 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_fmul
+                0x00000000       0xb0 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_frsub
+                0x00000000        0xc /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_fneg
+                0x00000000        0x6 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_f2iz
+                0x00000000       0x32 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_f2uiz
+                0x00000000       0x28 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_f2lz
+                0x00000000       0x5a /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_f2ulz
+                0x00000000       0x3e /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__bhs_ul2f
+                0x00000000       0x46 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_i2f
+                0x00000000       0x10 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_l2f
+                0x00000000       0x18 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_ul2f
+                0x00000000        0x8 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_f2d
+                0x00000000       0x38 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_fcmpeq
+                0x00000000       0x1e /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_fcmple
+                0x00000000       0x3e /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_fcmpge
+                0x00000000       0x3e /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_fcmpun
+                0x00000000       0x1a /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_cfcmple
+                0x00000000       0x20 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+ .text.__aeabi_cfrcmple
+                0x00000000        0xa /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
  .text          0x00000000        0x0 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(memcpy.o)
  .data          0x00000000        0x0 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(memcpy.o)
  .bss           0x00000000        0x0 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(memcpy.o)
@@ -497,7 +538,7 @@ END GROUP
                 0x20084000                __top_RamAHB32 = 0x20084000
                 0x20084000                __top_RAM2 = 0x20084000
 
-.text           0x00000000      0x8a8
+.text           0x00000000      0xca4
  FILL mask 0xff
                 0x00000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -506,16 +547,16 @@ END GROUP
                 0x000000cc                . = ALIGN (0x4)
                 0x000000cc                __section_table_start = .
                 0x000000cc                __data_section_table = .
-                0x000000cc        0x4 LONG 0x8a8 LOADADDR (.data)
+                0x000000cc        0x4 LONG 0xca4 LOADADDR (.data)
                 0x000000d0        0x4 LONG 0x10000000 ADDR (.data)
                 0x000000d4        0x4 LONG 0x8 SIZEOF (.data)
-                0x000000d8        0x4 LONG 0x8a8 LOADADDR (.data_RAM2)
+                0x000000d8        0x4 LONG 0xca4 LOADADDR (.data_RAM2)
                 0x000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
                 0x000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x000000e4                __data_section_table_end = .
                 0x000000e4                __bss_section_table = .
                 0x000000e4        0x4 LONG 0x10000008 ADDR (.bss)
-                0x000000e8        0x4 LONG 0x18 SIZEOF (.bss)
+                0x000000e8        0x4 LONG 0x14 SIZEOF (.bss)
                 0x000000ec        0x4 LONG 0x2007c000 ADDR (.bss_RAM2)
                 0x000000f0        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
                 0x000000f4                __bss_section_table_end = .
@@ -580,67 +621,89 @@ END GROUP
                 0x00000001                ASSERT (! ((__CRP_WORD_START__ == __CRP_WORD_END__)), Linker CRP Enabled, but no CRP_WORD provided within application)
  *(.text*)
  .text.mover_motor
-                0x00000300       0x90 ./TPO-Primitivas/cinematica.o
+                0x00000300      0x194 ./TPO-Primitivas/cinematica.o
                 0x00000300                mover_motor
- .text.InitPLL  0x00000390      0x140 ./TPO-Drivers/Oscilador.o
-                0x00000390                InitPLL
+ .text.InitPLL  0x00000494      0x140 ./TPO-Drivers/Oscilador.o
+                0x00000494                InitPLL
  .text.SetPINSEL
-                0x000004d0       0x88 ./TPO-Drivers/TPO-CONFIG.o
-                0x000004d0                SetPINSEL
- .text.SetDIR   0x00000558       0x70 ./TPO-Drivers/TPO-GPIO.o
-                0x00000558                SetDIR
+                0x000005d4       0x88 ./TPO-Drivers/TPO-CONFIG.o
+                0x000005d4                SetPINSEL
+ .text.SetDIR   0x0000065c       0x70 ./TPO-Drivers/TPO-GPIO.o
+                0x0000065c                SetDIR
  .text.SetPINes
-                0x000005c8       0xa8 ./TPO-Drivers/TPO-GPIO.o
-                0x000005c8                SetPINes
+                0x000006cc       0xa8 ./TPO-Drivers/TPO-GPIO.o
+                0x000006cc                SetPINes
  .text.Inicializar
-                0x00000670       0x14 ./TPO-Drivers/TPO-INIC.o
-                0x00000670                Inicializar
+                0x00000774       0x14 ./TPO-Drivers/TPO-INIC.o
+                0x00000774                Inicializar
  .text.InitGPIOs
-                0x00000684       0xa8 ./TPO-Drivers/TPO-INIC.o
-                0x00000684                InitGPIOs
+                0x00000788       0xa8 ./TPO-Drivers/TPO-INIC.o
+                0x00000788                InitGPIOs
  .text.Inicializar_Timer
-                0x0000072c       0x88 ./TPO-Drivers/TPO-INIC.o
-                0x0000072c                Inicializar_Timer
+                0x00000830       0x88 ./TPO-Drivers/TPO-INIC.o
+                0x00000830                Inicializar_Timer
  .text.TIMER0_IRQHandler
-                0x000007b4       0xd0 ./TPO-Drivers/TPO_TIMER.o
-                0x000007b4                TIMER0_IRQHandler
- .text.main     0x00000884       0x20 ./TPO-Aplicacion/TPO-Aplicacion.o
-                0x00000884                main
+                0x000008b8       0xd0 ./TPO-Drivers/TPO_TIMER.o
+                0x000008b8                TIMER0_IRQHandler
+ .text.main     0x00000988       0x28 ./TPO-Aplicacion/TPO-Aplicacion.o
+                0x00000988                main
  .text.__weak_main
-                0x000008a4        0x4 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
-                0x000008a4                __main
-                0x000008a4                __weak_main
+                0x000009b0        0x4 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
+                0x000009b0                __main
+                0x000009b0                __weak_main
+ .text.__aeabi_fdiv
+                0x000009b4       0xc0 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+                0x000009b4                __aeabi_fdiv
+ .text.__aeabi_fsub
+                0x00000a74       0xe0 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+                0x00000a74                __aeabi_fsub
+ .text.__aeabi_fadd
+                0x00000b54       0xac /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+                0x00000b54                __aeabi_fadd
+ .text.__bhs_ui2f
+                0x00000c00       0x26 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+                0x00000c00                __bhs_ui2f
+ .text.__aeabi_ui2f
+                0x00000c26        0x8 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+                0x00000c26                __aeabi_ui2f
+ .text.__aeabi_fcmplt
+                0x00000c2e       0x3a /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+                0x00000c2e                __aeabi_fcmplt
+ .text.__aeabi_fcmpgt
+                0x00000c68       0x3a /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
+                0x00000c68                __aeabi_fcmpgt
  *(.rodata .rodata.* .constdata .constdata.*)
-                0x000008a8                . = ALIGN (0x4)
+                0x00000ca4                . = ALIGN (0x4)
+ *fill*         0x00000ca2        0x2 ff
 
-.glue_7         0x000008a8        0x0
- .glue_7        0x000008a8        0x0 linker stubs
+.glue_7         0x00000ca4        0x0
+ .glue_7        0x00000ca4        0x0 linker stubs
 
-.glue_7t        0x000008a8        0x0
- .glue_7t       0x000008a8        0x0 linker stubs
+.glue_7t        0x00000ca4        0x0
+ .glue_7t       0x00000ca4        0x0 linker stubs
 
-.vfp11_veneer   0x000008a8        0x0
- .vfp11_veneer  0x000008a8        0x0 linker stubs
+.vfp11_veneer   0x00000ca4        0x0
+ .vfp11_veneer  0x00000ca4        0x0 linker stubs
 
-.v4_bx          0x000008a8        0x0
- .v4_bx         0x000008a8        0x0 linker stubs
+.v4_bx          0x00000ca4        0x0
+ .v4_bx         0x00000ca4        0x0 linker stubs
 
-.iplt           0x000008a8        0x0
- .iplt          0x000008a8        0x0 ./tools/unit_test_validacion.o
+.iplt           0x00000ca4        0x0
+ .iplt          0x00000ca4        0x0 ./tools/unit_test_validacion.o
 
-.rel.dyn        0x000008a8        0x0
- .rel.iplt      0x000008a8        0x0 ./tools/unit_test_validacion.o
+.rel.dyn        0x00000ca4        0x0
+ .rel.iplt      0x00000ca4        0x0 ./tools/unit_test_validacion.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000008a8                __exidx_start = .
+                0x00000ca4                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x000008a8                __exidx_end = .
-                0x000008a8                _etext = .
+                0x00000ca4                __exidx_end = .
+                0x00000ca4                _etext = .
 
-.data_RAM2      0x2007c000        0x0 load address 0x000008a8
+.data_RAM2      0x2007c000        0x0 load address 0x00000ca4
  FILL mask 0xff
                 [!provide]                PROVIDE (__start_data_RAM2, .)
  *(.ramfunc.$RAM2)
@@ -656,7 +719,7 @@ END GROUP
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _end_uninit_RESERVED = .
 
-.data           0x10000000        0x8 load address 0x000008a8
+.data           0x10000000        0x8 load address 0x00000ca4
  FILL mask 0xff
                 0x10000000                _data = .
  *(vtable)
@@ -668,7 +731,7 @@ END GROUP
                 0x10000008                . = ALIGN (0x4)
                 0x10000008                _edata = .
 
-.igot.plt       0x10000008        0x0 load address 0x000008b0
+.igot.plt       0x10000008        0x0 load address 0x00000cac
  .igot.plt      0x10000008        0x0 ./tools/unit_test_validacion.o
 
 .bss_RAM2       0x2007c000        0x0
@@ -678,29 +741,24 @@ END GROUP
                 0x2007c000                . = ALIGN ((. != 0x0)?0x4:0x1)
                 [!provide]                PROVIDE (__end_bss_RAM2, .)
 
-.bss            0x10000008       0x18
+.bss            0x10000008       0x14
                 0x10000008                _bss = .
  *(.bss*)
- .bss.primera_vez.3703
-                0x10000008        0x1 ./TPO-Primitivas/cinematica.o
- .bss.temp.3702
-                0x10000009        0x1 ./TPO-Primitivas/cinematica.o
- *fill*         0x1000000a        0x2 
  .bss.cont_periodo
-                0x1000000c        0x4 ./TPO-Drivers/TPO_TIMER.o
-                0x1000000c                cont_periodo
+                0x10000008        0x4 ./TPO-Drivers/TPO_TIMER.o
+                0x10000008                cont_periodo
  .bss.flag_dead_time
-                0x10000010        0x1 ./TPO-Drivers/TPO_TIMER.o
-                0x10000010                flag_dead_time
- *fill*         0x10000011        0x3 
+                0x1000000c        0x1 ./TPO-Drivers/TPO_TIMER.o
+                0x1000000c                flag_dead_time
+ *fill*         0x1000000d        0x3 
  .bss.cont_match0.3724
-                0x10000014        0x4 ./TPO-Drivers/TPO_TIMER.o
+                0x10000010        0x4 ./TPO-Drivers/TPO_TIMER.o
  .bss.vector.3725
-                0x10000018        0x7 ./TPO-Drivers/TPO_TIMER.o
+                0x10000014        0x7 ./TPO-Drivers/TPO_TIMER.o
  *(COMMON)
-                0x10000020                . = ALIGN (0x4)
- *fill*         0x1000001f        0x1 
-                0x10000020                _ebss = .
+                0x1000001c                . = ALIGN (0x4)
+ *fill*         0x1000001b        0x1 
+                0x1000001c                _ebss = .
                 [!provide]                PROVIDE (end, .)
 
 .noinit_RAM2    0x2007c000        0x0
@@ -708,37 +766,37 @@ END GROUP
  *(.noinit.$RamAHB32*)
                 0x2007c000                . = ALIGN (0x4)
 
-.noinit         0x10000020        0x0
-                0x10000020                _noinit = .
+.noinit         0x1000001c        0x0
+                0x1000001c                _noinit = .
  *(.noinit*)
-                0x10000020                . = ALIGN (0x4)
-                0x10000020                _end_noinit = .
-                0x10000020                PROVIDE (_pvHeapStart, DEFINED (__user_heap_base)?__user_heap_base:.)
+                0x1000001c                . = ALIGN (0x4)
+                0x1000001c                _end_noinit = .
+                0x1000001c                PROVIDE (_pvHeapStart, DEFINED (__user_heap_base)?__user_heap_base:.)
                 0x10008000                PROVIDE (_vStackTop, DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
                 [!provide]                PROVIDE (__valid_user_code_checksum, (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
 OUTPUT(TPO.axf elf32-littlearm)
 
-.debug_info     0x00000000      0x8ab
- .debug_info    0x00000000      0x10b ./TPO-Primitivas/cinematica.o
- .debug_info    0x0000010b       0x6b ./TPO-Drivers/Oscilador.o
- .debug_info    0x00000176       0xe1 ./TPO-Drivers/TPO-CONFIG.o
- .debug_info    0x00000257      0x185 ./TPO-Drivers/TPO-GPIO.o
- .debug_info    0x000003dc       0x8d ./TPO-Drivers/TPO-INIC.o
- .debug_info    0x00000469      0x12e ./TPO-Drivers/TPO_TIMER.o
- .debug_info    0x00000597      0x25e ./TPO-Drivers/cr_startup_lpc176x.o
- .debug_info    0x000007f5       0x3f ./TPO-Drivers/crp.o
- .debug_info    0x00000834       0x77 ./TPO-Aplicacion/TPO-Aplicacion.o
+.debug_info     0x00000000      0x8e2
+ .debug_info    0x00000000      0x129 ./TPO-Primitivas/cinematica.o
+ .debug_info    0x00000129       0x6b ./TPO-Drivers/Oscilador.o
+ .debug_info    0x00000194       0xe1 ./TPO-Drivers/TPO-CONFIG.o
+ .debug_info    0x00000275      0x185 ./TPO-Drivers/TPO-GPIO.o
+ .debug_info    0x000003fa       0x8d ./TPO-Drivers/TPO-INIC.o
+ .debug_info    0x00000487      0x12e ./TPO-Drivers/TPO_TIMER.o
+ .debug_info    0x000005b5      0x25e ./TPO-Drivers/cr_startup_lpc176x.o
+ .debug_info    0x00000813       0x3f ./TPO-Drivers/crp.o
+ .debug_info    0x00000852       0x90 ./TPO-Aplicacion/TPO-Aplicacion.o
 
-.debug_abbrev   0x00000000      0x49e
- .debug_abbrev  0x00000000       0x8a ./TPO-Primitivas/cinematica.o
- .debug_abbrev  0x0000008a       0x4e ./TPO-Drivers/Oscilador.o
- .debug_abbrev  0x000000d8       0x86 ./TPO-Drivers/TPO-CONFIG.o
- .debug_abbrev  0x0000015e       0xaf ./TPO-Drivers/TPO-GPIO.o
- .debug_abbrev  0x0000020d       0x4e ./TPO-Drivers/TPO-INIC.o
- .debug_abbrev  0x0000025b       0xb0 ./TPO-Drivers/TPO_TIMER.o
- .debug_abbrev  0x0000030b       0xf5 ./TPO-Drivers/cr_startup_lpc176x.o
- .debug_abbrev  0x00000400       0x36 ./TPO-Drivers/crp.o
- .debug_abbrev  0x00000436       0x68 ./TPO-Aplicacion/TPO-Aplicacion.o
+.debug_abbrev   0x00000000      0x4bc
+ .debug_abbrev  0x00000000       0x8c ./TPO-Primitivas/cinematica.o
+ .debug_abbrev  0x0000008c       0x4e ./TPO-Drivers/Oscilador.o
+ .debug_abbrev  0x000000da       0x86 ./TPO-Drivers/TPO-CONFIG.o
+ .debug_abbrev  0x00000160       0xaf ./TPO-Drivers/TPO-GPIO.o
+ .debug_abbrev  0x0000020f       0x4e ./TPO-Drivers/TPO-INIC.o
+ .debug_abbrev  0x0000025d       0xb0 ./TPO-Drivers/TPO_TIMER.o
+ .debug_abbrev  0x0000030d       0xf5 ./TPO-Drivers/cr_startup_lpc176x.o
+ .debug_abbrev  0x00000402       0x36 ./TPO-Drivers/crp.o
+ .debug_abbrev  0x00000438       0x84 ./TPO-Aplicacion/TPO-Aplicacion.o
 
 .debug_aranges  0x00000000      0x1a8
  .debug_aranges
@@ -785,36 +843,36 @@ OUTPUT(TPO.axf elf32-littlearm)
  .debug_macro   0x00000930       0x34 ./TPO-Drivers/crp.o
  .debug_macro   0x00000964       0x2d ./TPO-Aplicacion/TPO-Aplicacion.o
 
-.debug_line     0x00000000      0xc86
- .debug_line    0x00000000       0xb2 ./TPO-Primitivas/cinematica.o
- .debug_line    0x000000b2      0x1b5 ./TPO-Drivers/Oscilador.o
- .debug_line    0x00000267      0x18e ./TPO-Drivers/TPO-CONFIG.o
- .debug_line    0x000003f5      0x181 ./TPO-Drivers/TPO-GPIO.o
- .debug_line    0x00000576      0x1b0 ./TPO-Drivers/TPO-INIC.o
- .debug_line    0x00000726      0x1a2 ./TPO-Drivers/TPO_TIMER.o
- .debug_line    0x000008c8      0x201 ./TPO-Drivers/cr_startup_lpc176x.o
- .debug_line    0x00000ac9       0x84 ./TPO-Drivers/crp.o
- .debug_line    0x00000b4d      0x139 ./TPO-Aplicacion/TPO-Aplicacion.o
+.debug_line     0x00000000      0x890
+ .debug_line    0x00000000       0xd9 ./TPO-Primitivas/cinematica.o
+ .debug_line    0x000000d9      0x109 ./TPO-Drivers/Oscilador.o
+ .debug_line    0x000001e2       0xe2 ./TPO-Drivers/TPO-CONFIG.o
+ .debug_line    0x000002c4      0x121 ./TPO-Drivers/TPO-GPIO.o
+ .debug_line    0x000003e5      0x104 ./TPO-Drivers/TPO-INIC.o
+ .debug_line    0x000004e9       0xf6 ./TPO-Drivers/TPO_TIMER.o
+ .debug_line    0x000005df      0x155 ./TPO-Drivers/cr_startup_lpc176x.o
+ .debug_line    0x00000734       0x84 ./TPO-Drivers/crp.o
+ .debug_line    0x000007b8       0xd8 ./TPO-Aplicacion/TPO-Aplicacion.o
 
-.debug_str      0x00000000     0x3fad
- .debug_str     0x00000000     0x3815 ./TPO-Primitivas/cinematica.o
-                               0x3849 (size before relaxing)
- .debug_str     0x00003815      0x388 ./TPO-Drivers/Oscilador.o
-                               0x2d78 (size before relaxing)
- .debug_str     0x00003b9d       0x4a ./TPO-Drivers/TPO-CONFIG.o
-                               0x2da7 (size before relaxing)
- .debug_str     0x00003be7       0x64 ./TPO-Drivers/TPO-GPIO.o
-                               0x2dc8 (size before relaxing)
- .debug_str     0x00003c4b       0x42 ./TPO-Drivers/TPO-INIC.o
-                               0x2d97 (size before relaxing)
- .debug_str     0x00003c8d       0x40 ./TPO-Drivers/TPO_TIMER.o
-                               0x2dcc (size before relaxing)
- .debug_str     0x00003ccd      0x1c7 ./TPO-Drivers/cr_startup_lpc176x.o
-                               0x2f17 (size before relaxing)
- .debug_str     0x00003e94       0xf1 ./TPO-Drivers/crp.o
-                               0x25aa (size before relaxing)
- .debug_str     0x00003f85       0x28 ./TPO-Aplicacion/TPO-Aplicacion.o
-                               0x2d75 (size before relaxing)
+.debug_str      0x00000000     0x3fca
+ .debug_str     0x00000000     0x3828 ./TPO-Primitivas/cinematica.o
+                               0x3868 (size before relaxing)
+ .debug_str     0x00003828      0x388 ./TPO-Drivers/Oscilador.o
+                               0x2d86 (size before relaxing)
+ .debug_str     0x00003bb0       0x4a ./TPO-Drivers/TPO-CONFIG.o
+                               0x2db5 (size before relaxing)
+ .debug_str     0x00003bfa       0x64 ./TPO-Drivers/TPO-GPIO.o
+                               0x2dd6 (size before relaxing)
+ .debug_str     0x00003c5e       0x42 ./TPO-Drivers/TPO-INIC.o
+                               0x2da5 (size before relaxing)
+ .debug_str     0x00003ca0       0x40 ./TPO-Drivers/TPO_TIMER.o
+                               0x2dda (size before relaxing)
+ .debug_str     0x00003ce0      0x1c7 ./TPO-Drivers/cr_startup_lpc176x.o
+                               0x2f25 (size before relaxing)
+ .debug_str     0x00003ea7       0xf1 ./TPO-Drivers/crp.o
+                               0x25b8 (size before relaxing)
+ .debug_str     0x00003f98       0x32 ./TPO-Aplicacion/TPO-Aplicacion.o
+                               0x2d95 (size before relaxing)
 
 .comment        0x00000000       0xdc
  .comment       0x00000000       0x6e ./TPO-Primitivas/cinematica.o
@@ -829,6 +887,7 @@ OUTPUT(TPO.axf elf32-littlearm)
  .comment       0x0000006e       0x6f ./TPO-Aplicacion/TPO-Aplicacion.o
  .comment       0x0000006e       0x6e /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
                                  0x6f (size before relaxing)
+ .comment       0x000000dc       0x6f /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
 
 .ARM.attributes
                 0x00000000       0x31
@@ -852,6 +911,8 @@ OUTPUT(TPO.axf elf32-littlearm)
                 0x00000198       0x33 ./TPO-Aplicacion/TPO-Aplicacion.o
  .ARM.attributes
                 0x000001cb       0x33 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
+ .ARM.attributes
+                0x000001fe       0x33 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
 
 .debug_frame    0x00000000      0x3b0
  .debug_frame   0x00000000       0x38 ./TPO-Primitivas/cinematica.o

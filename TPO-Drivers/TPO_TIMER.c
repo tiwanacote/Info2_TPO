@@ -5,8 +5,8 @@
  *      Author: Maximiliano
  */
 
-#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Infotronic.h"
-
+//#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Infotronic.h"
+#include <Infotronic.h>
 
 uint32_t cont_periodo = 0;  						// Contador de la cantidad de períodos de 20ms - Global
 uint8_t pos_motor[8] = {54,54,54,54,54,54,54,54}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados

@@ -7,7 +7,9 @@ Infotronic.h
 #define KIT_INFO2_H_
 
 #include <RegsLPC1769_OLD.h>
-#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Oscilador.h"
+//#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Oscilador.h"
+#include <Oscilador.h>
+
 // TPL2-C-FW-INIC.c
 void Inicializar ( void );
 void InitPLL ( void );

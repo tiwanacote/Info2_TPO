@@ -3,7 +3,8 @@
 TPO-INIC
 ===============================================================================
 */
-#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Infotronic.h"
+//#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Infotronic.h"
+#include <Infotronic.h>
 
 /********************************************************************************
 	\fn  void Inicializar ( void )
