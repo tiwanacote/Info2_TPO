@@ -33,24 +33,25 @@ bool mover_motor(uint8_t motor , uint8_t pos_ini , uint8_t pos_final , uint8_t v
 		}*/
 
 
-	// Solamente incrementar posición
+	// Solamente incrementar posición cuando estoy arriba del 12% del rendimiento de ciclo (O sea, no hago nada en el)
 	if (flag_dead_time == 1)
 	{
 		// Si la posción inicial es menor a la final
-		if(pos_final-pos_ini < 0)
+		if(pos_final-pos_ini > 0)
 		{
 			// Si no se llega a la posición final
-			//if (temp < pos_final) MAXI
+			//if (temp < pos_final)// MAXI
 			if ( pos_motor[motor - 1] < pos_final)
 				temp = pos_ini + velocidad * cont_periodo;
 
 				// Si en la siguiente cuenta me paso entonces adelanto ahora
+			/* AQUÏ HAY UN ERROR
 				delta_temp = (pos_ini + velocidad * (cont_periodo + 1)) - temp;
 				if ( (pos_ini + velocidad * (cont_periodo + 1)) > ((float)pos_final + (delta_temp/2)))
 				{
 					temp = pos_final;
 					moving = 0;
-				}
+				}*/
 			// Si se llega
 			else
 			{
