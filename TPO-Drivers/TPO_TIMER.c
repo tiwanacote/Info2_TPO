@@ -9,7 +9,8 @@
 #include <Infotronic.h>
 
 uint32_t cont_periodo = 0;  						// Contador de la cantidad de períodos de 20ms - Global
-uint8_t pos_motor[8] = {54,54,54,54,54,54,54,54}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
+//uint8_t pos_motor[8] = {54,54,54,54,54,54,54,54}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
+uint8_t pos_motor[8] = {1000,1000,1000,1000,1000,1000,1000,1000}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
 uint8_t flag_dead_time = 0; 						// Avisa cuando aparece el tiempo muerto utilizable para poder hacer los cálculos de la siguiente posición
 
 

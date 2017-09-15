@@ -9,83 +9,73 @@ extern uint8_t flag_dead_time;	// Avisa cuando aparece el tiempo muerto utilizab
 bool mover_motor(uint8_t motor , uint8_t pos_ini , uint8_t pos_final , uint8_t velocidad , uint8_t aceleracion )
 {
 
+	/*
+		\fn  bool mover_motor(uint8_t motor , uint8_t pos_ini , uint8_t pos_final , uint8_t velocidad , uint8_t aceleracion )
+		\brief Realiza el cálculo de cinemático período a período que usará TIMER0_IRQHandler para controlar el PWM del motor en cuestión.
+		\author & date: Maximiliano Bertotto - 15-09-2017
+	 	\param uint8_t motor: Número de motor que se pretende mover
+	 	\param uint8_t pos_int: Posición inicial del mismo expresado en número de cuenta del timer
+	 	\param uint8_t pos_final: Posición final buscada del motor expresado en número de cuenta del timer
+	 	\param uint8_t velocidad: En cuentas/período (Posee su equivalente en grados/segundo)
+	 	\param uint8_t aceleracion: Aún no implementado
+		\return: Bool - Si se está moviendo devuelve "True"
+	*/
 
-/* Devuelve un bool moving si uando sale aún no se alcanzó la posición final
- *
- *
- */
+	uint8_t temp = 0 ;
+	bool moving = 1;
+	float delta_temp = 0;
 
-	//static uint8_t temp ;//pos_ini;
-	uint8_t temp = 0 ; //MAXI
-	bool moving = 1; // MAXI
-	float delta_temp = 0; //MAXI
-
-	//static uint8_t primera_vez = 0;
-	// Poner afuera. La primera vez que llega una posición nueva o instrucción (Abrir mano), el cont_periodo
-	// se pone en cero
-	//
-
-	/* MAXI
-	if (primera_vez == 0)
-		{
-		temp = pos_ini;
-		primera_vez = 1;
-		}*/
-
-
-	// Solamente incrementar posición cuando estoy arriba del 12% del rendimiento de ciclo (O sea, no hago nada en el)
+	// Solamente incrementar posición cuando estoy arriba del 12% del rendimiento de ciclo
 	if (flag_dead_time == 1)
 	{
 		// Si la posción inicial es menor a la final
 		if(pos_final-pos_ini > 0)
 		{
 			// Si no se llega a la posición final
-			//if (temp < pos_final)// MAXI
 			if ( pos_motor[motor - 1] < pos_final)
+			{
 				temp = pos_ini + velocidad * cont_periodo;
 
-				// Si en la siguiente cuenta me paso entonces adelanto ahora
-			/* AQUÏ HAY UN ERROR
+				// Si en la siguiente cuenta me paso entonces adelanto ahora. Busca que el error sea lo menor posible
 				delta_temp = (pos_ini + velocidad * (cont_periodo + 1)) - temp;
-				if ( (pos_ini + velocidad * (cont_periodo + 1)) > ((float)pos_final + (delta_temp/2)))
+				if ( ((float)(pos_ini + velocidad * (cont_periodo + 1))) > ((float)pos_final + (delta_temp/2)))
 				{
 					temp = pos_final;
 					moving = 0;
-				}*/
-			// Si se llega
-			else
-			{
-				temp = pos_final;
-				moving = 0;
+				}
+
+				pos_motor[motor - 1] = temp; // Escribo en el vector pos_motor[] que usara TIMER0_IRQHandler
 			}
+			else
+				moving = 0;
 		}
-		// Si la posición inicial es mayor a la final
+
+		// IDEM anterior pero si la posición inicial es mayor a la final
 		else
 		{
 
 			// Si no se llega a la posición final
-			// if (temp > pos_final) MAXI
 			if ( pos_motor[motor - 1] > pos_final)
+			{
 				temp = pos_ini - velocidad * cont_periodo;
 
 				// Si en la siguiente cuenta me paso entonces adelanto ahora
-				delta_temp = (pos_ini + velocidad * (cont_periodo + 1)) - temp;
+				delta_temp = temp - (pos_ini - velocidad * (cont_periodo + 1));
 				if ( (pos_ini - velocidad * (cont_periodo + 1)) < ((float)pos_final - (delta_temp/2)) )
 				{
 					temp = pos_final;
 					moving = 0;
 				}
 
-				// Si se llega
-			else
-			{
-				temp = pos_final;
-				moving = 0;
+				pos_motor[motor - 1] = temp; // Escribo en el vector pos_motor[] que usara TIMER0_IRQHandler
 			}
+			// Si se llega
+			else
+				moving = 0;
 		}
-		// Se carga la posicion transitoria en el vector de posiciones
-		pos_motor[motor - 1] = temp;
 	}
+
+
 
 	return moving;
 }
