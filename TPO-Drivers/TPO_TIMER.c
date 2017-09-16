@@ -9,8 +9,8 @@
 #include <Infotronic.h>
 
 uint32_t cont_periodo = 0;  						// Contador de la cantidad de períodos de 20ms - Global
-//uint8_t pos_motor[8] = {54,54,54,54,54,54,54,54}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
-uint8_t pos_motor[8] = {1000,1000,1000,1000,1000,1000,1000,1000}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
+uint32_t pos_motor[8] = {54,54,54,54,54,54,54,54}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
+//uint32_t pos_motor[8] = {1000,1000,1000,1000,1000,1000,1000,1000}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
 uint8_t flag_dead_time = 0; 						// Avisa cuando aparece el tiempo muerto utilizable para poder hacer los cálculos de la siguiente posición
 
 
@@ -26,9 +26,10 @@ void TIMER0_IRQHandler (void)
 	cont_match0++;
 
 	// Cuando definamos el vector de posición dejar el ciclo FOR y sacar el resto de los IF
-	for(int i = 0; i<8 ; i++)
+	/*for(int i = 0; i<8 ; i++)
 		if(cont_match0 == pos_motor[i])
 			vector[i]=0;
+			*/
 /*
 	if(cont_match0 == pos_m0)
 		vector[0] = 0; // P0.16
@@ -48,8 +49,9 @@ void TIMER0_IRQHandler (void)
 		vector[7] = 0;  // P0.23
 */
 
-	SetPINes( 0 , vector );
-
+//	SetPINes( 0 , vector );
+	if(cont_match0 == pos_motor[5])
+	SetPIN(0,21,0);
 
 	if(cont_match0 == 250 )
 		flag_dead_time = 1;
@@ -66,15 +68,13 @@ void TIMER0_IRQHandler (void)
 		for(int i=0; i<8 ; i++)
 			vector[i]=1;
 
-		SetPINes( 0 , vector );   // Levanto los pulsos
+		SetPIN(0,21,1);
+		//SetPINes( 0 , vector );   // Levanto los pulsos
 	}
 
 
 	// Protege que cont_periodo haga overflow cuando los motores no se usan
-	if (cont_periodo == 10000)  // Poner #DEFINE
+	if (cont_periodo == 1000)  // Poner #DEFINE
 		cont_periodo = 0;
 
 }
-
-
-

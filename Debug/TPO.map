@@ -108,7 +108,8 @@ Discarded input sections
  .text          0x00000000        0x0 ./TPO-Drivers/TPO-GPIO.o
  .data          0x00000000        0x0 ./TPO-Drivers/TPO-GPIO.o
  .bss           0x00000000        0x0 ./TPO-Drivers/TPO-GPIO.o
- .text.SetPIN   0x00000000       0x74 ./TPO-Drivers/TPO-GPIO.o
+ .text.SetPINes
+                0x00000000       0xa8 ./TPO-Drivers/TPO-GPIO.o
  .text.GetPIN   0x00000000       0x4c ./TPO-Drivers/TPO-GPIO.o
  .debug_macro   0x00000000      0x886 ./TPO-Drivers/TPO-GPIO.o
  .debug_macro   0x00000000      0x148 ./TPO-Drivers/TPO-GPIO.o
@@ -549,13 +550,13 @@ END GROUP
                 0x000000cc                __data_section_table = .
                 0x000000cc        0x4 LONG 0xca4 LOADADDR (.data)
                 0x000000d0        0x4 LONG 0x10000000 ADDR (.data)
-                0x000000d4        0x4 LONG 0x8 SIZEOF (.data)
+                0x000000d4        0x4 LONG 0x20 SIZEOF (.data)
                 0x000000d8        0x4 LONG 0xca4 LOADADDR (.data_RAM2)
                 0x000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
                 0x000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x000000e4                __data_section_table_end = .
                 0x000000e4                __bss_section_table = .
-                0x000000e4        0x4 LONG 0x10000008 ADDR (.bss)
+                0x000000e4        0x4 LONG 0x10000020 ADDR (.bss)
                 0x000000e8        0x4 LONG 0x14 SIZEOF (.bss)
                 0x000000ec        0x4 LONG 0x2007c000 ADDR (.bss_RAM2)
                 0x000000f0        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
@@ -621,32 +622,31 @@ END GROUP
                 0x00000001                ASSERT (! ((__CRP_WORD_START__ == __CRP_WORD_END__)), Linker CRP Enabled, but no CRP_WORD provided within application)
  *(.text*)
  .text.mover_motor
-                0x00000300      0x194 ./TPO-Primitivas/cinematica.o
+                0x00000300      0x180 ./TPO-Primitivas/cinematica.o
                 0x00000300                mover_motor
- .text.InitPLL  0x00000494      0x140 ./TPO-Drivers/Oscilador.o
-                0x00000494                InitPLL
+ .text.InitPLL  0x00000480      0x140 ./TPO-Drivers/Oscilador.o
+                0x00000480                InitPLL
  .text.SetPINSEL
-                0x000005d4       0x88 ./TPO-Drivers/TPO-CONFIG.o
-                0x000005d4                SetPINSEL
- .text.SetDIR   0x0000065c       0x70 ./TPO-Drivers/TPO-GPIO.o
-                0x0000065c                SetDIR
- .text.SetPINes
-                0x000006cc       0xa8 ./TPO-Drivers/TPO-GPIO.o
-                0x000006cc                SetPINes
+                0x000005c0       0x88 ./TPO-Drivers/TPO-CONFIG.o
+                0x000005c0                SetPINSEL
+ .text.SetDIR   0x00000648       0x70 ./TPO-Drivers/TPO-GPIO.o
+                0x00000648                SetDIR
+ .text.SetPIN   0x000006b8       0x74 ./TPO-Drivers/TPO-GPIO.o
+                0x000006b8                SetPIN
  .text.Inicializar
-                0x00000774       0x14 ./TPO-Drivers/TPO-INIC.o
-                0x00000774                Inicializar
+                0x0000072c       0x14 ./TPO-Drivers/TPO-INIC.o
+                0x0000072c                Inicializar
  .text.InitGPIOs
-                0x00000788       0xa8 ./TPO-Drivers/TPO-INIC.o
-                0x00000788                InitGPIOs
+                0x00000740       0xbc ./TPO-Drivers/TPO-INIC.o
+                0x00000740                InitGPIOs
  .text.Inicializar_Timer
-                0x00000830       0x88 ./TPO-Drivers/TPO-INIC.o
-                0x00000830                Inicializar_Timer
+                0x000007fc       0x94 ./TPO-Drivers/TPO-INIC.o
+                0x000007fc                Inicializar_Timer
  .text.TIMER0_IRQHandler
-                0x000008b8       0xd0 ./TPO-Drivers/TPO_TIMER.o
-                0x000008b8                TIMER0_IRQHandler
- .text.main     0x00000988       0x28 ./TPO-Aplicacion/TPO-Aplicacion.o
-                0x00000988                main
+                0x00000890       0xb0 ./TPO-Drivers/TPO_TIMER.o
+                0x00000890                TIMER0_IRQHandler
+ .text.main     0x00000940       0x70 ./TPO-Aplicacion/TPO-Aplicacion.o
+                0x00000940                main
  .text.__weak_main
                 0x000009b0        0x4 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/libcr_c.a(__weak__main.o)
                 0x000009b0                __main
@@ -719,20 +719,20 @@ END GROUP
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _end_uninit_RESERVED = .
 
-.data           0x10000000        0x8 load address 0x00000ca4
+.data           0x10000000       0x20 load address 0x00000ca4
  FILL mask 0xff
                 0x10000000                _data = .
  *(vtable)
  *(.ramfunc*)
  *(.data*)
  .data.pos_motor
-                0x10000000        0x8 ./TPO-Drivers/TPO_TIMER.o
+                0x10000000       0x20 ./TPO-Drivers/TPO_TIMER.o
                 0x10000000                pos_motor
-                0x10000008                . = ALIGN (0x4)
-                0x10000008                _edata = .
+                0x10000020                . = ALIGN (0x4)
+                0x10000020                _edata = .
 
-.igot.plt       0x10000008        0x0 load address 0x00000cac
- .igot.plt      0x10000008        0x0 ./tools/unit_test_validacion.o
+.igot.plt       0x10000020        0x0 load address 0x00000cc4
+ .igot.plt      0x10000020        0x0 ./tools/unit_test_validacion.o
 
 .bss_RAM2       0x2007c000        0x0
                 [!provide]                PROVIDE (__start_bss_RAM2, .)
@@ -741,24 +741,24 @@ END GROUP
                 0x2007c000                . = ALIGN ((. != 0x0)?0x4:0x1)
                 [!provide]                PROVIDE (__end_bss_RAM2, .)
 
-.bss            0x10000008       0x14
-                0x10000008                _bss = .
+.bss            0x10000020       0x14
+                0x10000020                _bss = .
  *(.bss*)
  .bss.cont_periodo
-                0x10000008        0x4 ./TPO-Drivers/TPO_TIMER.o
-                0x10000008                cont_periodo
+                0x10000020        0x4 ./TPO-Drivers/TPO_TIMER.o
+                0x10000020                cont_periodo
  .bss.flag_dead_time
-                0x1000000c        0x1 ./TPO-Drivers/TPO_TIMER.o
-                0x1000000c                flag_dead_time
- *fill*         0x1000000d        0x3 
+                0x10000024        0x1 ./TPO-Drivers/TPO_TIMER.o
+                0x10000024                flag_dead_time
+ *fill*         0x10000025        0x3 
  .bss.cont_match0.3724
-                0x10000010        0x4 ./TPO-Drivers/TPO_TIMER.o
+                0x10000028        0x4 ./TPO-Drivers/TPO_TIMER.o
  .bss.vector.3725
-                0x10000014        0x7 ./TPO-Drivers/TPO_TIMER.o
+                0x1000002c        0x7 ./TPO-Drivers/TPO_TIMER.o
  *(COMMON)
-                0x1000001c                . = ALIGN (0x4)
- *fill*         0x1000001b        0x1 
-                0x1000001c                _ebss = .
+                0x10000034                . = ALIGN (0x4)
+ *fill*         0x10000033        0x1 
+                0x10000034                _ebss = .
                 [!provide]                PROVIDE (end, .)
 
 .noinit_RAM2    0x2007c000        0x0
@@ -766,37 +766,37 @@ END GROUP
  *(.noinit.$RamAHB32*)
                 0x2007c000                . = ALIGN (0x4)
 
-.noinit         0x1000001c        0x0
-                0x1000001c                _noinit = .
+.noinit         0x10000034        0x0
+                0x10000034                _noinit = .
  *(.noinit*)
-                0x1000001c                . = ALIGN (0x4)
-                0x1000001c                _end_noinit = .
-                0x1000001c                PROVIDE (_pvHeapStart, DEFINED (__user_heap_base)?__user_heap_base:.)
+                0x10000034                . = ALIGN (0x4)
+                0x10000034                _end_noinit = .
+                0x10000034                PROVIDE (_pvHeapStart, DEFINED (__user_heap_base)?__user_heap_base:.)
                 0x10008000                PROVIDE (_vStackTop, DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
                 [!provide]                PROVIDE (__valid_user_code_checksum, (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
 OUTPUT(TPO.axf elf32-littlearm)
 
-.debug_info     0x00000000      0x8e2
+.debug_info     0x00000000      0x91b
  .debug_info    0x00000000      0x129 ./TPO-Primitivas/cinematica.o
  .debug_info    0x00000129       0x6b ./TPO-Drivers/Oscilador.o
  .debug_info    0x00000194       0xe1 ./TPO-Drivers/TPO-CONFIG.o
  .debug_info    0x00000275      0x185 ./TPO-Drivers/TPO-GPIO.o
  .debug_info    0x000003fa       0x8d ./TPO-Drivers/TPO-INIC.o
- .debug_info    0x00000487      0x12e ./TPO-Drivers/TPO_TIMER.o
- .debug_info    0x000005b5      0x25e ./TPO-Drivers/cr_startup_lpc176x.o
- .debug_info    0x00000813       0x3f ./TPO-Drivers/crp.o
- .debug_info    0x00000852       0x90 ./TPO-Aplicacion/TPO-Aplicacion.o
+ .debug_info    0x00000487      0x114 ./TPO-Drivers/TPO_TIMER.o
+ .debug_info    0x0000059b      0x25e ./TPO-Drivers/cr_startup_lpc176x.o
+ .debug_info    0x000007f9       0x3f ./TPO-Drivers/crp.o
+ .debug_info    0x00000838       0xe3 ./TPO-Aplicacion/TPO-Aplicacion.o
 
-.debug_abbrev   0x00000000      0x4bc
+.debug_abbrev   0x00000000      0x4f7
  .debug_abbrev  0x00000000       0x8c ./TPO-Primitivas/cinematica.o
  .debug_abbrev  0x0000008c       0x4e ./TPO-Drivers/Oscilador.o
  .debug_abbrev  0x000000da       0x86 ./TPO-Drivers/TPO-CONFIG.o
  .debug_abbrev  0x00000160       0xaf ./TPO-Drivers/TPO-GPIO.o
- .debug_abbrev  0x0000020f       0x4e ./TPO-Drivers/TPO-INIC.o
- .debug_abbrev  0x0000025d       0xb0 ./TPO-Drivers/TPO_TIMER.o
- .debug_abbrev  0x0000030d       0xf5 ./TPO-Drivers/cr_startup_lpc176x.o
- .debug_abbrev  0x00000402       0x36 ./TPO-Drivers/crp.o
- .debug_abbrev  0x00000438       0x84 ./TPO-Aplicacion/TPO-Aplicacion.o
+ .debug_abbrev  0x0000020f       0x66 ./TPO-Drivers/TPO-INIC.o
+ .debug_abbrev  0x00000275       0xa5 ./TPO-Drivers/TPO_TIMER.o
+ .debug_abbrev  0x0000031a       0xf5 ./TPO-Drivers/cr_startup_lpc176x.o
+ .debug_abbrev  0x0000040f       0x36 ./TPO-Drivers/crp.o
+ .debug_abbrev  0x00000445       0xb2 ./TPO-Aplicacion/TPO-Aplicacion.o
 
 .debug_aranges  0x00000000      0x1a8
  .debug_aranges
@@ -843,36 +843,36 @@ OUTPUT(TPO.axf elf32-littlearm)
  .debug_macro   0x00000930       0x34 ./TPO-Drivers/crp.o
  .debug_macro   0x00000964       0x2d ./TPO-Aplicacion/TPO-Aplicacion.o
 
-.debug_line     0x00000000      0x819
- .debug_line    0x00000000       0xc4 ./TPO-Primitivas/cinematica.o
- .debug_line    0x000000c4       0xfb ./TPO-Drivers/Oscilador.o
- .debug_line    0x000001bf       0xd4 ./TPO-Drivers/TPO-CONFIG.o
- .debug_line    0x00000293      0x113 ./TPO-Drivers/TPO-GPIO.o
- .debug_line    0x000003a6       0xf6 ./TPO-Drivers/TPO-INIC.o
- .debug_line    0x0000049c       0xe8 ./TPO-Drivers/TPO_TIMER.o
- .debug_line    0x00000584      0x147 ./TPO-Drivers/cr_startup_lpc176x.o
- .debug_line    0x000006cb       0x84 ./TPO-Drivers/crp.o
- .debug_line    0x0000074f       0xca ./TPO-Aplicacion/TPO-Aplicacion.o
+.debug_line     0x00000000      0x886
+ .debug_line    0x00000000       0xd4 ./TPO-Primitivas/cinematica.o
+ .debug_line    0x000000d4      0x109 ./TPO-Drivers/Oscilador.o
+ .debug_line    0x000001dd       0xe2 ./TPO-Drivers/TPO-CONFIG.o
+ .debug_line    0x000002bf      0x121 ./TPO-Drivers/TPO-GPIO.o
+ .debug_line    0x000003e0      0x105 ./TPO-Drivers/TPO-INIC.o
+ .debug_line    0x000004e5       0xe8 ./TPO-Drivers/TPO_TIMER.o
+ .debug_line    0x000005cd      0x155 ./TPO-Drivers/cr_startup_lpc176x.o
+ .debug_line    0x00000722       0x84 ./TPO-Drivers/crp.o
+ .debug_line    0x000007a6       0xe0 ./TPO-Aplicacion/TPO-Aplicacion.o
 
-.debug_str      0x00000000     0x3fbc
- .debug_str     0x00000000     0x381a ./TPO-Primitivas/cinematica.o
-                               0x385a (size before relaxing)
- .debug_str     0x0000381a      0x388 ./TPO-Drivers/Oscilador.o
-                               0x2d78 (size before relaxing)
- .debug_str     0x00003ba2       0x4a ./TPO-Drivers/TPO-CONFIG.o
-                               0x2da7 (size before relaxing)
- .debug_str     0x00003bec       0x64 ./TPO-Drivers/TPO-GPIO.o
-                               0x2dc8 (size before relaxing)
- .debug_str     0x00003c50       0x42 ./TPO-Drivers/TPO-INIC.o
-                               0x2d97 (size before relaxing)
- .debug_str     0x00003c92       0x40 ./TPO-Drivers/TPO_TIMER.o
-                               0x2dcc (size before relaxing)
- .debug_str     0x00003cd2      0x1c7 ./TPO-Drivers/cr_startup_lpc176x.o
-                               0x2f17 (size before relaxing)
- .debug_str     0x00003e99       0xf1 ./TPO-Drivers/crp.o
+.debug_str      0x00000000     0x3ffe
+ .debug_str     0x00000000     0x3828 ./TPO-Primitivas/cinematica.o
+                               0x3868 (size before relaxing)
+ .debug_str     0x00003828      0x388 ./TPO-Drivers/Oscilador.o
+                               0x2d86 (size before relaxing)
+ .debug_str     0x00003bb0       0x4a ./TPO-Drivers/TPO-CONFIG.o
+                               0x2db5 (size before relaxing)
+ .debug_str     0x00003bfa       0x64 ./TPO-Drivers/TPO-GPIO.o
+                               0x2dd6 (size before relaxing)
+ .debug_str     0x00003c5e       0x42 ./TPO-Drivers/TPO-INIC.o
+                               0x2da5 (size before relaxing)
+ .debug_str     0x00003ca0       0x40 ./TPO-Drivers/TPO_TIMER.o
+                               0x2dda (size before relaxing)
+ .debug_str     0x00003ce0      0x1c7 ./TPO-Drivers/cr_startup_lpc176x.o
+                               0x2f25 (size before relaxing)
+ .debug_str     0x00003ea7      0x125 ./TPO-Drivers/crp.o
                                0x25aa (size before relaxing)
- .debug_str     0x00003f8a       0x32 ./TPO-Aplicacion/TPO-Aplicacion.o
-                               0x2d87 (size before relaxing)
+ .debug_str     0x00003fcc       0x32 ./TPO-Aplicacion/TPO-Aplicacion.o
+                               0x2dbe (size before relaxing)
 
 .comment        0x00000000       0xdc
  .comment       0x00000000       0x6e ./TPO-Primitivas/cinematica.o
@@ -914,12 +914,12 @@ OUTPUT(TPO.axf elf32-littlearm)
  .ARM.attributes
                 0x000001fe       0x33 /usr/local/lpcxpresso_8.2.2_650/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/libcr_eabihelpers.a(float.o)
 
-.debug_frame    0x00000000      0x3b0
+.debug_frame    0x00000000      0x3b4
  .debug_frame   0x00000000       0x38 ./TPO-Primitivas/cinematica.o
  .debug_frame   0x00000038       0x30 ./TPO-Drivers/Oscilador.o
  .debug_frame   0x00000068       0x60 ./TPO-Drivers/TPO-CONFIG.o
  .debug_frame   0x000000c8       0xb0 ./TPO-Drivers/TPO-GPIO.o
- .debug_frame   0x00000178       0x64 ./TPO-Drivers/TPO-INIC.o
- .debug_frame   0x000001dc       0x34 ./TPO-Drivers/TPO_TIMER.o
- .debug_frame   0x00000210      0x170 ./TPO-Drivers/cr_startup_lpc176x.o
- .debug_frame   0x00000380       0x30 ./TPO-Aplicacion/TPO-Aplicacion.o
+ .debug_frame   0x00000178       0x68 ./TPO-Drivers/TPO-INIC.o
+ .debug_frame   0x000001e0       0x34 ./TPO-Drivers/TPO_TIMER.o
+ .debug_frame   0x00000214      0x170 ./TPO-Drivers/cr_startup_lpc176x.o
+ .debug_frame   0x00000384       0x30 ./TPO-Aplicacion/TPO-Aplicacion.o

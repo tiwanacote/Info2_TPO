@@ -1,12 +1,13 @@
 
 #include <cinematica.h>
 
+
 extern uint32_t cont_periodo;
-extern uint8_t pos_motor[8];
+extern uint32_t pos_motor[8];
 extern uint8_t flag_dead_time;	// Avisa cuando aparece el tiempo muerto utilizable para poder hacer los cálculos de la siguiente posición
 
 
-bool mover_motor(uint8_t motor , uint8_t pos_ini , uint8_t pos_final , uint8_t velocidad , uint8_t aceleracion )
+bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_t velocidad , uint32_t aceleracion )
 {
 
 	/*
@@ -21,7 +22,7 @@ bool mover_motor(uint8_t motor , uint8_t pos_ini , uint8_t pos_final , uint8_t v
 		\return: Bool - Si se está moviendo devuelve "True"
 	*/
 
-	uint8_t temp = 0 ;
+	uint32_t temp = 0 ;
 	bool moving = 1;
 	float delta_temp = 0;
 
@@ -29,7 +30,7 @@ bool mover_motor(uint8_t motor , uint8_t pos_ini , uint8_t pos_final , uint8_t v
 	if (flag_dead_time == 1)
 	{
 		// Si la posción inicial es menor a la final
-		if(pos_final-pos_ini > 0)
+		if(pos_final > pos_ini)
 		{
 			// Si no se llega a la posición final
 			if ( pos_motor[motor - 1] < pos_final)
@@ -46,6 +47,7 @@ bool mover_motor(uint8_t motor , uint8_t pos_ini , uint8_t pos_final , uint8_t v
 
 				pos_motor[motor - 1] = temp; // Escribo en el vector pos_motor[] que usara TIMER0_IRQHandler
 			}
+			// Si se llega
 			else
 				moving = 0;
 		}
@@ -61,7 +63,7 @@ bool mover_motor(uint8_t motor , uint8_t pos_ini , uint8_t pos_final , uint8_t v
 
 				// Si en la siguiente cuenta me paso entonces adelanto ahora
 				delta_temp = temp - (pos_ini - velocidad * (cont_periodo + 1));
-				if ( (pos_ini - velocidad * (cont_periodo + 1)) < ((float)pos_final - (delta_temp/2)) )
+				if ( (float)(pos_ini - velocidad * (cont_periodo + 1)) < ((float)pos_final - (delta_temp/2)) )
 				{
 					temp = pos_final;
 					moving = 0;
@@ -73,6 +75,7 @@ bool mover_motor(uint8_t motor , uint8_t pos_ini , uint8_t pos_final , uint8_t v
 			else
 				moving = 0;
 		}
+
 	}
 
 
