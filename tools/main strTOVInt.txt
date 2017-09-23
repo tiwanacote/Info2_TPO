@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+
+
+
+char cadena []="G,125,120,10,23";
+int VectorInt [100];
+
+void strTOVInt (void);
+
+void strTOVInt (void)
+{
+	int i=0,j=0,k=0;
+	
+	char AUX[3]="000";
+	
+	while(i<strlen(cadena))
+	{
+		if (cadena[i] != ',')
+		{
+			AUX[j] = cadena[i];
+			j++;
+			
+		}
+		else
+		{
+			VectorInt[k] = atoi (AUX);
+			memset(AUX,0,3);
+			k++;
+			j=0;
+		}
+		
+		if (cadena[i+1] == '\0')
+		VectorInt[k] = atoi (AUX);
+		
+		
+		i++;
+	}	
+}
+
+
+int main(void) {
+   
+   printf ("\n Cadena=%s \n VectorInt[0]=%d \n VectorInt[1]=%d \n VectorInt[2]=%d \n VectorInt[3]=%d \n VectorInt[4]=%d \n",cadena,VectorInt[0],VectorInt[1],VectorInt[2],VectorInt[3],VectorInt[4]);
+   
+   strTOVInt();
+   
+   printf ("\n\n Cadena=%s \n VectorInt[0]=%d \n VectorInt[1]=%d \n VectorInt[2]=%d \n VectorInt[3]=%d \n VectorInt[4]=%d \n",cadena,VectorInt[0],VectorInt[1],VectorInt[2],VectorInt[3],VectorInt[4]);
+   
+	return 0;
+}
