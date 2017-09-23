@@ -10,6 +10,7 @@ RegsLPC1769
 typedef 	unsigned int 		uint32_t;
 typedef 	unsigned short 		uint16_t;
 typedef 	unsigned char 		uint8_t;
+typedef 	unsigned char 		bool;
 typedef 	__RW uint32_t 		registro_t;  //!< defino un tipo 'registro'.
 
 

@@ -6,19 +6,19 @@
  */
 
 //#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Infotronic.h"
-#include <Infotronic.h>
-
-uint32_t cont_periodo = 0;  						// Contador de la cantidad de períodos de 20ms - Global
-uint32_t pos_motor[8] = {54,54,54,54,54,54,54,54}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
-//uint32_t pos_motor[8] = {1000,1000,1000,1000,1000,1000,1000,1000}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
-uint8_t flag_dead_time = 0; 						// Avisa cuando aparece el tiempo muerto utilizable para poder hacer los cálculos de la siguiente posición
+//#include <Infotronic.h>
+#include <global_variables.h>
+//uint32_t cont_periodo = 0;  						// Contador de la cantidad de períodos de 20ms - Global
+//uint32_t pos_motor[8] = {54,54,54,54,54,54,54,54}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
+////uint32_t pos_motor[8] = {1000,1000,1000,1000,1000,1000,1000,1000}; 	// Vector que guarda la posición instantanea de los motores. Arranca en 54 cuentas que es equivalente a cero grados
+//uint8_t flag_dead_time = 0; 						// Avisa cuando aparece el tiempo muerto utilizable para poder hacer los cálculos de la siguiente posición
 
 
 void TIMER0_IRQHandler (void)
 {
 
 	static uint32_t cont_match0 = 0;
-	static uint8_t vector[7]; // Agregar #define CANT_MOTORES 8
+	static uint8_t vector[8]; // Agregar #define CANT_MOTORES 8
 
 
 	T0IR = ( 1 << IRMR0 );	// Borro flag del Match 0

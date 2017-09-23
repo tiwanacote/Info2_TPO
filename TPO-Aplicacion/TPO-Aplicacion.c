@@ -5,8 +5,10 @@
 */
 #include "Infotronic.h"
 
-extern uint32_t pos_motor[8]; //solo para debug
-extern uint32_t cont_periodo;
+#include <global_variables.h>
+//extern uint32_t pos_motor[8]; //solo para debug
+//extern uint32_t cont_periodo;
+
 int main(void)
 {
 	Inicializar ( );

@@ -1,10 +1,11 @@
 
 #include <cinematica.h>
 
-
-extern uint32_t cont_periodo;
-extern uint32_t pos_motor[8];
-extern uint8_t flag_dead_time;	// Avisa cuando aparece el tiempo muerto utilizable para poder hacer los cálculos de la siguiente posición
+#include <global_variables.h>
+//extern uint32_t cont_periodo;
+//extern uint32_t pos_motor[8];
+//extern uint8_t flag_dead_time;	// Avisa cuando aparece el tiempo muerto utilizable para poder hacer los cálculos de la siguiente posición
+//extern uint8_t flag_stop[8];
 
 
 bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_t velocidad , uint32_t aceleracion )
@@ -34,46 +35,64 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 		// Si la posción inicial es menor a la final
 		if(pos_final > pos_ini)
 		{
-			// Si aún no se llegó a la posición final
-			if ( pos_motor[motor - 1] < pos_final)
+			// Si se genera alguna parada de emergencia o los sensores de corriente de los servos se disparan
+			if (flag_stop[motor] != 1)
 			{
-				temp = pos_ini + velocidad * cont_periodo;
-
-				// Si en la siguiente cuenta me paso entonces adelanto ahora. Busca que el error sea lo menor posible
-				delta_temp = (pos_ini + velocidad * (cont_periodo + 1)) - temp;
-				if ( ((float)(pos_ini + velocidad * (cont_periodo + 1))) > ((float)pos_final + (delta_temp/2)))
+				// Si aún no se llegó a la posición final
+				if ( pos_motor[motor - 1] < pos_final)
 				{
-					temp = pos_final;
-					moving = 0;
-				}
 
-				pos_motor[motor - 1] = temp; // Escribo en el vector pos_motor[] que usara TIMER0_IRQHandler
+					temp = pos_ini + velocidad * cont_periodo;
+
+					// Si en la siguiente cuenta me paso entonces adelanto ahora. Busca que el error sea lo menor posible
+					delta_temp = (pos_ini + velocidad * (cont_periodo + 1)) - temp;
+					if ( ((float)(pos_ini + velocidad * (cont_periodo + 1))) > ((float)pos_final + (delta_temp/2)))
+					{
+						temp = pos_final;
+						moving = 0;
+					}
+
+					pos_motor[motor - 1] = temp; // Escribo en el vector pos_motor[] que usara TIMER0_IRQHandler
+				}
+				// Si se llega
+				else
+					moving = 0;
 			}
-			// Si se llega
+
+			// flag_stop[motor] == 0.  pos_motor[motor - 1] se mantendrá todo el tiempo en su última posición
 			else
 				moving = 0;
+
 		}
 
 		// IDEM anterior pero si la posición inicial es mayor a la final
 		else
 		{
 
-			// Si aún no se llegó a la posición final
-			if ( pos_motor[motor - 1] > pos_final)
+			// Si se genera alguna parada de emergencia o los sensores de corriente de los servos se disparan
+			if (flag_stop[motor] != 1)
 			{
-				temp = pos_ini - velocidad * cont_periodo;
 
-				// Si en la siguiente cuenta me paso entonces adelanto ahora
-				delta_temp = temp - (pos_ini - velocidad * (cont_periodo + 1));
-				if ( (float)(pos_ini - velocidad * (cont_periodo + 1)) < ((float)pos_final - (delta_temp/2)) )
+				// Si aún no se llegó a la posición final
+				if ( pos_motor[motor - 1] > pos_final)
 				{
-					temp = pos_final;
-					moving = 0;
-				}
+					temp = pos_ini - velocidad * cont_periodo;
 
-				pos_motor[motor - 1] = temp; // Escribo en el vector pos_motor[] que usara TIMER0_IRQHandler
+					// Si en la siguiente cuenta me paso entonces adelanto ahora
+					delta_temp = temp - (pos_ini - velocidad * (cont_periodo + 1));
+					if ( (float)(pos_ini - velocidad * (cont_periodo + 1)) < ((float)pos_final - (delta_temp/2)) )
+					{
+						temp = pos_final;
+						moving = 0;
+					}
+
+					pos_motor[motor - 1] = temp; // Escribo en el vector pos_motor[] que usara TIMER0_IRQHandler
+				}
+				// Si se llega
+				else
+					moving = 0;
 			}
-			// Si se llega
+			// flag_stop[motor] == 0.  pos_motor[motor - 1] se mantendrá todo el tiempo en su última posición
 			else
 				moving = 0;
 		}

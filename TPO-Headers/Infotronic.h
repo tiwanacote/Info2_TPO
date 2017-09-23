@@ -7,6 +7,7 @@ Infotronic.h
 #define KIT_INFO2_H_
 
 #include <RegsLPC1769_OLD.h>
+//#include <RegsLPC1769.h>
 //#include "../../../../Documents/Info_II/Info2_TPO/TPO-Headers/Oscilador.h"
 #include <Oscilador.h>
 

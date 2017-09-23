@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../TPO-Aplicacion/TPO-Aplicacion.c 
+../TPO-Aplicacion/TPO-Aplicacion.c \
+../TPO-Aplicacion/global_variables.c 
 
 OBJS += \
-./TPO-Aplicacion/TPO-Aplicacion.o 
+./TPO-Aplicacion/TPO-Aplicacion.o \
+./TPO-Aplicacion/global_variables.o 
 
 C_DEPS += \
-./TPO-Aplicacion/TPO-Aplicacion.d 
+./TPO-Aplicacion/TPO-Aplicacion.d \
+./TPO-Aplicacion/global_variables.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
