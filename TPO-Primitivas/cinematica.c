@@ -22,17 +22,19 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 		\return: Bool - Si se está moviendo devuelve "True"
 	*/
 
+
 	uint32_t temp = 0 ;
 	bool moving = 1;
 	float delta_temp = 0;
 
-	// Solamente incrementar posición cuando estoy arriba del 12% del rendimiento de ciclo
+
+	// Solamente incrementar posición cuando estoy arriba del 12% del rendimiento de ciclo de PWM del servo
 	if (flag_dead_time == 1)
 	{
 		// Si la posción inicial es menor a la final
 		if(pos_final > pos_ini)
 		{
-			// Si no se llega a la posición final
+			// Si aún no se llegó a la posición final
 			if ( pos_motor[motor - 1] < pos_final)
 			{
 				temp = pos_ini + velocidad * cont_periodo;
@@ -56,7 +58,7 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 		else
 		{
 
-			// Si no se llega a la posición final
+			// Si aún no se llegó a la posición final
 			if ( pos_motor[motor - 1] > pos_final)
 			{
 				temp = pos_ini - velocidad * cont_periodo;
@@ -83,18 +85,15 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 	return moving;
 }
 
+
 /*
 void mover_motores (uint8_t pos_iniciales[], uint8_t pos_finales[] , uint8_t velocidades[], uint8_t aceleraciones )
 {
-	uint8_t moving[8] = {0,0,0,0,0,0,0,0};
+	cont_periodo =0;
 	uint8_t suma = 0;
 
 	for (int i = 0; i < 8 ; i++)
-		moving[i] = mover_motor(i , pos_iniciales[i] , pos_finales[i] , velocidades[i] , aceleraciones[i] );
+		moving += mover_motor(i , pos_iniciales[i] , pos_finales[i] , velocidades[i] , aceleraciones[i] );
 
-	for (int i = 0; i < 8 ; i++)
-		suma = moving[i];
-
-	//is_moving = suma;
 }
 */
