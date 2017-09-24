@@ -6,6 +6,7 @@
 #include "Infotronic.h"
 
 #include <global_variables.h>
+#include <maquina_estado.h>
 //extern uint32_t pos_motor[8]; //solo para debug
 //extern uint32_t cont_periodo;
 
@@ -16,6 +17,22 @@ int main(void)
 	uint8_t is_moving = 1;
 
 
+
+	while(1)
+	{
+
+		maquina_estado();
+
+	}
+
+
+
+/*
+ *
+ *
+ * ESTO FUNCIONA Y ES LO ULTIMO QUE HICIMOS CON JUAN
+ *
+ *
 	while( 1 )
 	{
 		cont_periodo =0;
@@ -34,7 +51,7 @@ int main(void)
 		is_moving = 1;
 		pos_motor[5]=54;
 	}
-
+*/
 
 	return 0 ;
 }

@@ -6,7 +6,7 @@
 *	\date 23-09-2017 09:53:22
 */
 
-#include "funciones.h"
+#include <maquina_estado.h>
 
 
 

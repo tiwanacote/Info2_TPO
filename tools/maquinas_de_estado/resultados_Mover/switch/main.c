@@ -14,7 +14,7 @@
 extern int contm1;extern int ninguna;extern int m0;extern int Flagcorriente;
 
 
-void main()
+void main_mover()
 {
 
 //declaracion de variables

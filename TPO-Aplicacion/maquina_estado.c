@@ -11,7 +11,7 @@
 
 
 int msg = 0 ;int msg_ok = 0 ;int is_moving = 0 ;
-#include "funciones.h" 
+#include <maquina_estado.h> 
 
 //Implementacion Switch-Case
 
@@ -22,6 +22,8 @@ int msg = 0 ;int msg_ok = 0 ;int is_moving = 0 ;
 *	\author 
 *	\date 23-09-2017 09:53:22
 */
+
+
 void maquina_estado()
 {
 		static int estado = LEER_MSG;

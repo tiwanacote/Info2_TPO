@@ -18,5 +18,4 @@ SUBDIRS := \
 TPO-Aplicacion \
 TPO-Drivers \
 TPO-Primitivas \
-tools \
 

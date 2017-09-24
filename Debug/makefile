@@ -8,7 +8,6 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include tools/subdir.mk
 -include TPO-Primitivas/subdir.mk
 -include TPO-Drivers/subdir.mk
 -include TPO-Aplicacion/subdir.mk
