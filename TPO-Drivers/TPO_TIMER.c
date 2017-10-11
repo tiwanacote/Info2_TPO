@@ -49,9 +49,17 @@ void TIMER0_IRQHandler (void)
 		vector[7] = 0;  // P0.23
 */
 
-//	SetPINes( 0 , vector );
+	//if(cont_match0 == pos_motor[5])
+	//	SetPIN(0,22,0);
+
+	// OJO esto es para debbug!!!!
 	if(cont_match0 == pos_motor[5])
-	SetPIN(0,21,0);
+	{
+		for(int i=0; i<8 ; i++)
+		vector[i]=0;
+	}
+
+	SetPINes(0,vector);
 
 	if(cont_match0 == 250 )
 		flag_dead_time = 1;
@@ -68,8 +76,9 @@ void TIMER0_IRQHandler (void)
 		for(int i=0; i<8 ; i++)
 			vector[i]=1;
 
-		SetPIN(0,21,1);
-		//SetPINes( 0 , vector );   // Levanto los pulsos
+		//SetPIN(0,21,1);
+		//SetPIN(0,22,1);
+		SetPINes( 0 , vector );   // Levanto los pulsos
 	}
 
 
