@@ -5,6 +5,8 @@
 */
 #include "Infotronic.h"
 
+// MAXI PruEBA!
+
 #include <global_variables.h>
 #include <maquina_estado.h>
 //extern uint32_t pos_motor[8]; //solo para debug
