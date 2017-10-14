@@ -99,7 +99,6 @@ void maquina_estado()
 				is_moving += mover_motor( MOTOR_MUNIECA  , pos_ini[MOTOR_MUNIECA] , pos_fin[MOTOR_MUNIECA], vel[MOTOR_MUNIECA] , acel[MOTOR_MUNIECA] );
 				is_moving += mover_motor( MOTOR_CODO     , pos_ini[MOTOR_CODO]    , pos_fin[MOTOR_CODO]   , vel[MOTOR_CODO]    , acel[MOTOR_CODO] );
 				is_moving += mover_motor( MOTOR_EXTRA    , pos_ini[MOTOR_EXTRA]   , pos_fin[MOTOR_EXTRA]  , vel[MOTOR_EXTRA]   , acel[MOTOR_EXTRA] );
-				//is_moving = mover_motor( MOTOR_MUNIECA  , 54 , 1000, 15 , 1 );
 
 				if((is_moving >= 1))
 				{
