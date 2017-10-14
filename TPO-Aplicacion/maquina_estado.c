@@ -29,8 +29,16 @@ int msg = 0 ;int msg_ok = 0 ;int is_moving = 0 ;
 */
 
 
+/*  Existira un buffer que guardará movimientos uno tras otro. Si llega un "stop", va al principio
+ * de la cola, frena el sistema y borra el buffer para que entre la siguiente instrucción.
+ * Paralelismo de persona que quiere cruzar la calle corriendo y se arrepiente porque viene un auto
+ */
 
 
+int pos_ini[]={54,54,54,54,54,54,54,54};
+int pos_fin[]={1000,1000,1000,1000,1000,1000,1000,1000};
+int vel[]={15,15,15,15,15,15,15,15};
+int acel[]={1,1,1,1,1,1,1,1};
 
 void maquina_estado()
 {
@@ -50,7 +58,7 @@ void maquina_estado()
 				}
 				if((msg==1))
 				{
-					//validar_msg();
+					validar_msg();
 					estado = VALIDAR_MSG;
 		
 				}
@@ -82,10 +90,18 @@ void maquina_estado()
 				break;
 			
 			case MOVER:
-			
-				is_moving = mover_motor( MOTOR_MUNIECA  , 54 , 1000, 15 , 1 );
 
-				if((is_moving==1))
+				is_moving += mover_motor( MOTOR_DEDO_1   , pos_ini[MOTOR_DEDO_1]  , pos_fin[MOTOR_DEDO_1] , vel[MOTOR_DEDO_1]  , acel[MOTOR_DEDO_1] );
+				is_moving += mover_motor( MOTOR_DEDO_2   , pos_ini[MOTOR_DEDO_2]  , pos_fin[MOTOR_DEDO_2] , vel[MOTOR_DEDO_2]  , acel[MOTOR_DEDO_2] );
+				is_moving += mover_motor( MOTOR_DEDO_3   , pos_ini[MOTOR_DEDO_3]  , pos_fin[MOTOR_DEDO_3] , vel[MOTOR_DEDO_3]  , acel[MOTOR_DEDO_3] );
+				is_moving += mover_motor( MOTOR_DEDO_4   , pos_ini[MOTOR_DEDO_4]  , pos_fin[MOTOR_DEDO_4] , vel[MOTOR_DEDO_4]  , acel[MOTOR_DEDO_4] );
+				is_moving += mover_motor( MOTOR_DEDO_5   , pos_ini[MOTOR_DEDO_5]  , pos_fin[MOTOR_DEDO_5] , vel[MOTOR_DEDO_5]  , acel[MOTOR_DEDO_5] );
+				is_moving += mover_motor( MOTOR_MUNIECA  , pos_ini[MOTOR_MUNIECA] , pos_fin[MOTOR_MUNIECA], vel[MOTOR_MUNIECA] , acel[MOTOR_MUNIECA] );
+				is_moving += mover_motor( MOTOR_CODO     , pos_ini[MOTOR_CODO]    , pos_fin[MOTOR_CODO]   , vel[MOTOR_CODO]    , acel[MOTOR_CODO] );
+				is_moving += mover_motor( MOTOR_EXTRA    , pos_ini[MOTOR_EXTRA]   , pos_fin[MOTOR_EXTRA]  , vel[MOTOR_EXTRA]   , acel[MOTOR_EXTRA] );
+				//is_moving = mover_motor( MOTOR_MUNIECA  , 54 , 1000, 15 , 1 );
+
+				if((is_moving >= 1))
 				{
 					
 					estado = MOVER;
