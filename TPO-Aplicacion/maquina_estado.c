@@ -12,6 +12,11 @@
 
 int msg = 0 ;int msg_ok = 0 ;int is_moving = 0 ;
 #include <maquina_estado.h> 
+#include <global_variables.h>
+#include <defines.h>
+
+
+
 
 //Implementacion Switch-Case
 
@@ -24,15 +29,20 @@ int msg = 0 ;int msg_ok = 0 ;int is_moving = 0 ;
 */
 
 
+
+
+
 void maquina_estado()
 {
+	msg = 1; // SOLO DEBUGGING
+	msg_ok=1;// SOLO DEBUGGING
 		static int estado = LEER_MSG;
 
 		switch(estado)
 		{
 			case LEER_MSG:
 			
-				if((msg==0))
+				if((msg==0))	// Flag: msg
 				{
 					
 					estado = LEER_MSG;
@@ -40,7 +50,7 @@ void maquina_estado()
 				}
 				if((msg==1))
 				{
-					validar_msg();
+					//validar_msg();
 					estado = VALIDAR_MSG;
 		
 				}
@@ -53,6 +63,7 @@ void maquina_estado()
 				{
 					
 					estado = MOVER;
+					cont_periodo =0; // Pone en cero el contador de período justo antes de mover
 		
 				}
 				if((msg_ok==0))
@@ -72,6 +83,8 @@ void maquina_estado()
 			
 			case MOVER:
 			
+				is_moving = mover_motor( MOTOR_MUNIECA  , 54 , 1000, 15 , 1 );
+
 				if((is_moving==1))
 				{
 					

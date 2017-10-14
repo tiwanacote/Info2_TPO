@@ -92,7 +92,7 @@ void Inicializar_Timer(void)
 	PCLKSEL0 |= 1 << 0 ;    //
 	//PCLKSEL0 |= 3 << 0 ;    //
 
-	T0MR0 = 0x000409;//0x000102;  //0x7fffff;		// Configuro el tiempo del match 0 (Número de cuenta)
+	T0MR0 = 0x000409; //0x000102;  //0x7fffff;		// Configuro el tiempo del match 0 (Número de cuenta)
 
 	T0MCR  = ( ( 1 << MR0I ) | ( 1 << MR0R ) | ( 0 << MR0S ) ) ; // Mach0 salta la interrupción y resetea
 

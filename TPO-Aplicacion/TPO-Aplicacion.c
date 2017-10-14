@@ -34,7 +34,7 @@ int main(void)
  *
  * ESTO FUNCIONA Y ES LO ULTIMO QUE HICIMOS CON JUAN
  *
- */
+*/
 	while( 1 )
 	{
 		cont_periodo =0;

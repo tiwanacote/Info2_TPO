@@ -25,3 +25,6 @@ void maquina_estado(void);
 //Prototipos de las acciones
 void validar_msg(void);
 void error_report(void);
+
+
+#include <cinematica.h>
