@@ -25,39 +25,9 @@ void TIMER0_IRQHandler (void)
 
 	cont_match0++;
 
-	// Cuando definamos el vector de posición dejar el ciclo FOR y sacar el resto de los IF
-	/*for(int i = 0; i<8 ; i++)
+	for(int i=0; i<8 ; i++)
 		if(cont_match0 == pos_motor[i])
 			vector[i]=0;
-			*/
-/*
-	if(cont_match0 == pos_m0)
-		vector[0] = 0; // P0.16
-	if(cont_match0 == pos_m1)
-		vector[1] = 0;  // P0.17
-	if(cont_match0 == pos_m0)
-		vector[2] = 0; // P0.18
-	if(cont_match0 == pos_m1)
-		vector[3] = 0;  // P0.19
-	if(cont_match0 == pos_m0)
-		vector[4] = 0; // P0.20
-	if(cont_match0 == pos_m1)
-		vector[5] = 0;  // P0.21
-	if(cont_match0 == pos_m0)
-		vector[6] = 0; // P0.22
-	if(cont_match0 == pos_m1)
-		vector[7] = 0;  // P0.23
-*/
-
-	//if(cont_match0 == pos_motor[5])
-	//	SetPIN(0,22,0);
-
-	// OJO esto es para debbug!!!!
-	if(cont_match0 == pos_motor[5])
-	{
-		for(int i=0; i<8 ; i++)
-		vector[i]=0;
-	}
 
 	SetPINes(0,vector);
 

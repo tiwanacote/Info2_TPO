@@ -74,7 +74,7 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 			{
 
 				// Si aún no se llegó a la posición final
-				if ( pos_motor[motor - 1] > pos_final)
+				if ( pos_motor[motor - 1] >= pos_final)
 				{
 					temp = pos_ini - velocidad * cont_periodo;
 
