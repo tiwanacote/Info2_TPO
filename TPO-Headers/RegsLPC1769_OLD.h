@@ -61,6 +61,45 @@ typedef 	__RW uint32_t 		registro_t;  //!< defino un tipo 'registro'.
 	#define		TCM			0
 	#define		CIS			2
 
+//  NVIC -----------------------------------------------------------------------------------------------------------------
+#define		NVIC_EINT3	21
+// Nested Vectored Interrupt Controller (NVIC)
+// 0xE000E100UL : Direccion de inicio de los registros de habilitación (set) de interrupciones en el NVIC:
+#define		ISER		( ( registro_t  * ) 0xE000E100UL )
+// 0xE000E180UL : Direccion de inicio de los registros de deshabilitacion (clear) de interrupciones en el NVIC:
+#define		ICER		( ( registro_t  * ) 0xE000E180UL )
+
+// Registros ISER:
+#define		ISER0		ISER[0]
+#define		ISER1		ISER[1]
+
+// Registros ICER:
+#define		ICER0		ICER[0]
+#define		ICER1		ICER[1]
+
+
+//  Interrupciones Externas  ------------------------------------------------------------------------------------------------
+#define		EXTINT 		( * ( ( registro_t  * ) 0x400FC140UL ) )
+	#define		EINT0		0
+	#define		EINT1		1
+	#define		EINT2		2
+	#define		EINT3		3
+
+#define		EXTMODE 	( * ( ( registro_t  * ) 0x400FC148UL ) )
+	#define		EXTMODE0	0
+	#define		EXTMODE1	1
+	#define		EXTMODE2	2
+	#define		EXTMODE3	3
+#define		EXTPOLAR 	( * ( ( registro_t  * ) 0x400FC14CUL ) )
+	#define		EXTPOLAR0	0
+	#define		EXTPOLAR1	1
+	#define		EXTPOLAR2	2
+	#define		EXTPOLAR3	3
+
+
+
+
+
 
 // NVIC ----------------------------------------------------------------------------------------------
 #define		NVIC_TIMER0		1

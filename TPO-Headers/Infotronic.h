@@ -16,6 +16,7 @@ void Inicializar ( void );
 void InitPLL ( void );
 void InitGPIOs ( void );
 void Inicializar_Timer(void);
+void InitEINTx( void );
 
 // TPL2-C-FW-CONFIG.c
 void SetPINSEL ( uint8_t , uint8_t , uint8_t );

@@ -10,6 +10,7 @@ C_SRCS += \
 ../TPO-Drivers/TPO-INIC.c \
 ../TPO-Drivers/TPO_ADC.c \
 ../TPO-Drivers/TPO_TIMER.c \
+../TPO-Drivers/TPO_debug.c \
 ../TPO-Drivers/cr_startup_lpc176x.c \
 ../TPO-Drivers/crp.c 
 
@@ -20,6 +21,7 @@ OBJS += \
 ./TPO-Drivers/TPO-INIC.o \
 ./TPO-Drivers/TPO_ADC.o \
 ./TPO-Drivers/TPO_TIMER.o \
+./TPO-Drivers/TPO_debug.o \
 ./TPO-Drivers/cr_startup_lpc176x.o \
 ./TPO-Drivers/crp.o 
 
@@ -30,6 +32,7 @@ C_DEPS += \
 ./TPO-Drivers/TPO-INIC.d \
 ./TPO-Drivers/TPO_ADC.d \
 ./TPO-Drivers/TPO_TIMER.d \
+./TPO-Drivers/TPO_debug.d \
 ./TPO-Drivers/cr_startup_lpc176x.d \
 ./TPO-Drivers/crp.d 
 

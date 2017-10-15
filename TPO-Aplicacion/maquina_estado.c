@@ -35,10 +35,10 @@ int msg = 0 ;int msg_ok = 0 ;int is_moving = 0 ;
  */
 
 
-int pos_ini[]={54,54,54,54,54,54,54,54};
-int pos_fin[]={1000,1000,1000,1000,1000,1000,1000,1000};
-int vel[]={15,15,15,15,15,15,15,15};
-int acel[]={1,1,1,1,1,1,1,1};
+int pos_ini[8]={54,54,54,54,54,54,54,54};
+int pos_fin[8]={1000,1000,1000,1000,1000,1000,1000,1000};
+int vel[8]={15,15,15,15,15,15,15,15};
+int acel[8]={1,1,1,1,1,1,1,1};
 
 void maquina_estado()
 {
@@ -72,7 +72,7 @@ void maquina_estado()
 					
 					estado = MOVER;
 					cont_periodo =0; // Pone en cero el contador de período justo antes de mover
-		
+
 				}
 				if((msg_ok==0))
 				{
@@ -112,6 +112,8 @@ void maquina_estado()
 					estado = LEER_MSG;
 		
 				}
+
+				is_moving = 0;
 
 				break;
 			

@@ -18,6 +18,7 @@ void Inicializar ( void )
 	InitPLL ( ) ;
 	InitGPIOs ( ) ;
 	Inicializar_Timer( ) ;
+	InitEINTx( );
 
 }
 
@@ -74,6 +75,11 @@ void InitGPIOs ( void )
 	// LPC N° de Pin: 26
 	SetPINSEL( 0 , 28 , 0 ); 	// puerto = 0 , pin =  28 ; seleccion = GPIO
 	SetDIR( 0 , 28 , 1 ); 		// puerto = 0 , pin =  23 ; Direccion = SALIDA
+
+	// For debug
+	// LPC N° de Pin: 16 - Usado para leer cuando se presiona el boton. Emulamos puerto serie
+	SetPINSEL( 0 , 24 , 0 ); 	// puerto = 0 , pin =  24 ; seleccion = GPIO
+	SetDIR( 0 , 24 , 1 ); 		// puerto = 0 , pin =  24 ; Direccion = SALIDA
 }
 
 /********************************************************************************
@@ -105,4 +111,22 @@ void Inicializar_Timer(void)
 	ISER0 |= ( 1 << NVIC_TIMER0 ) ;
 }
 
+
+/********************************************************************************
+	\fn  void InitEINTx( void )
+	\brief Inicialización de Interrupciones externas.
+	\author & date: Juan y Maxi - 14/10/2017
+ 	\param void
+	\return:	void
+*/
+
+void InitEINTx( void )
+{
+	// Interrupcion EINT3 -----------------------------------------------------------
+	SetPINSEL( 2 , 13 , 1 ); 			// Pin9:P2[13] 	GPIO / EINT3 / Reserved / I2STX_SDA
+	EXTMODE |= ( 1 << EXTMODE3 );		// externa por flanco
+	EXTPOLAR &= ~( 1 << EXTPOLAR3 );	// descendente
+	ISER0 |= ( 1 << NVIC_EINT3 ) ;		// Habilito Interrupcion externa 3
+	// --------------------------------------------------------------------------------
+}
 
