@@ -6,10 +6,13 @@
  */
 
 #include <Infotronic.h>
+//#include <stdio.h>
 
 // Para debug
 extern int pos_fin[8];
-int buf [3]={1000,500,1500};
+extern int pos_ini[8];
+int buf [4]={500,1000,1500,1900};
+int buf_2 [4]={54,500,1000,1500};
 
 
 void EINT3_IRQHandler( void )
@@ -17,13 +20,15 @@ void EINT3_IRQHandler( void )
 	EXTINT |= ( 1 << EINT3 );	// borro el flag EINT3 de interrupcion externa 3 del registro EXTINT
 
 	static int contador = 0;
+	//printf ("HOLA/n");
 
 	pos_fin[6]=buf[contador];
+	pos_ini[6]=buf_2[contador];
 
 
 	contador++;
 
-	if(contador==2)
+	if(contador==4)
 		contador=0;
 
 

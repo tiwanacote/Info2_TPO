@@ -35,10 +35,10 @@ int msg = 0 ;int msg_ok = 0 ;int is_moving = 0 ;
  */
 
 
-int pos_ini[8]={54,54,54,54,54,54,54,54};
-int pos_fin[8]={1000,1000,1000,1000,1000,1000,1000,1000};
-int vel[8]={15,15,15,15,15,15,15,15};
-int acel[8]={1,1,1,1,1,1,1,1};
+extern int pos_ini[8];
+extern int pos_fin[8];
+extern int vel[8];
+extern int acel[8];
 
 void maquina_estado()
 {
