@@ -6,11 +6,13 @@
  */
 
 #include <Infotronic.h>
+#include <global_variables.h>
 //#include <stdio.h>
 
 // Para debug
 extern int pos_fin[8];
 extern int pos_ini[8];
+extern int is_moving;
 int buf [4]={500,1000,54};
 int buf_2 [4]={54,500,1000};
 
@@ -24,6 +26,8 @@ void EINT3_IRQHandler( void )
 
 	pos_fin[6]=buf[contador];
 	pos_ini[6]=buf_2[contador];
+
+	//pos_ini[6]= pos_motor[6]; Por qué no anda esto?
 
 
 	contador++;

@@ -471,7 +471,7 @@ END GROUP
                 0x100000c0        0x4 ./TPO-Drivers/TPO_TIMER.o
  .bss.vector.3733
                 0x100000c4        0x8 ./TPO-Drivers/TPO_TIMER.o
- .bss.contador.3728
+ .bss.contador.3737
                 0x100000cc        0x4 ./TPO-Drivers/TPO_debug.o
  .bss.cont_periodo
                 0x100000d0        0x4 ./TPO-Aplicacion/global_variables.o
@@ -578,7 +578,7 @@ OUTPUT(TPO.axf elf32-littlearm)
  .debug_ranges  0x00000118       0x10 ./TPO-Aplicacion/TPO-Aplicacion.o
  .debug_ranges  0x00000128       0x20 ./TPO-Aplicacion/maquina_estado.o
 
-.debug_macro    0x00000000      0xe3d
+.debug_macro    0x00000000      0xe41
  .debug_macro   0x00000000       0x35 ./TPO-Primitivas/cinematica.o
  .debug_macro   0x00000035      0x886 ./TPO-Primitivas/cinematica.o
  .debug_macro   0x000008bb      0x1ce ./TPO-Primitivas/cinematica.o
@@ -588,29 +588,29 @@ OUTPUT(TPO.axf elf32-littlearm)
  .debug_macro   0x00000bdd       0x2d ./TPO-Drivers/TPO-GPIO.o
  .debug_macro   0x00000c0a       0x2d ./TPO-Drivers/TPO-INIC.o
  .debug_macro   0x00000c37       0x31 ./TPO-Drivers/TPO_TIMER.o
- .debug_macro   0x00000c68       0x2d ./TPO-Drivers/TPO_debug.o
- .debug_macro   0x00000c95       0x39 ./TPO-Drivers/cr_startup_lpc176x.o
- .debug_macro   0x00000cce       0x1a ./TPO-Drivers/crp.o
- .debug_macro   0x00000ce8       0x34 ./TPO-Drivers/crp.o
- .debug_macro   0x00000d1c       0x47 ./TPO-Aplicacion/TPO-Aplicacion.o
- .debug_macro   0x00000d63       0x28 ./TPO-Aplicacion/TPO-Aplicacion.o
- .debug_macro   0x00000d8b       0x3a ./TPO-Aplicacion/TPO-Aplicacion.o
- .debug_macro   0x00000dc5       0x31 ./TPO-Aplicacion/global_variables.o
- .debug_macro   0x00000df6       0x47 ./TPO-Aplicacion/maquina_estado.o
+ .debug_macro   0x00000c68       0x31 ./TPO-Drivers/TPO_debug.o
+ .debug_macro   0x00000c99       0x39 ./TPO-Drivers/cr_startup_lpc176x.o
+ .debug_macro   0x00000cd2       0x1a ./TPO-Drivers/crp.o
+ .debug_macro   0x00000cec       0x34 ./TPO-Drivers/crp.o
+ .debug_macro   0x00000d20       0x47 ./TPO-Aplicacion/TPO-Aplicacion.o
+ .debug_macro   0x00000d67       0x28 ./TPO-Aplicacion/TPO-Aplicacion.o
+ .debug_macro   0x00000d8f       0x3a ./TPO-Aplicacion/TPO-Aplicacion.o
+ .debug_macro   0x00000dc9       0x31 ./TPO-Aplicacion/global_variables.o
+ .debug_macro   0x00000dfa       0x47 ./TPO-Aplicacion/maquina_estado.o
 
-.debug_line     0x00000000      0xbcb
+.debug_line     0x00000000      0xbe1
  .debug_line    0x00000000      0x10e ./TPO-Primitivas/cinematica.o
  .debug_line    0x0000010e       0xfb ./TPO-Drivers/Oscilador.o
  .debug_line    0x00000209       0xd4 ./TPO-Drivers/TPO-CONFIG.o
  .debug_line    0x000002dd      0x113 ./TPO-Drivers/TPO-GPIO.o
  .debug_line    0x000003f0      0x10f ./TPO-Drivers/TPO-INIC.o
  .debug_line    0x000004ff       0xfc ./TPO-Drivers/TPO_TIMER.o
- .debug_line    0x000005fb       0xc3 ./TPO-Drivers/TPO_debug.o
- .debug_line    0x000006be      0x147 ./TPO-Drivers/cr_startup_lpc176x.o
- .debug_line    0x00000805       0x84 ./TPO-Drivers/crp.o
- .debug_line    0x00000889      0x113 ./TPO-Aplicacion/TPO-Aplicacion.o
- .debug_line    0x0000099c       0xc9 ./TPO-Aplicacion/global_variables.o
- .debug_line    0x00000a65      0x166 ./TPO-Aplicacion/maquina_estado.o
+ .debug_line    0x000005fb       0xd9 ./TPO-Drivers/TPO_debug.o
+ .debug_line    0x000006d4      0x147 ./TPO-Drivers/cr_startup_lpc176x.o
+ .debug_line    0x0000081b       0x84 ./TPO-Drivers/crp.o
+ .debug_line    0x0000089f      0x113 ./TPO-Aplicacion/TPO-Aplicacion.o
+ .debug_line    0x000009b2       0xc9 ./TPO-Aplicacion/global_variables.o
+ .debug_line    0x00000a7b      0x166 ./TPO-Aplicacion/maquina_estado.o
 
 .debug_str      0x00000000     0x34f5
  .debug_str     0x00000000     0x2ee0 ./TPO-Primitivas/cinematica.o
