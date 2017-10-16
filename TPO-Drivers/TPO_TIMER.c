@@ -18,7 +18,7 @@ void TIMER0_IRQHandler (void)
 {
 
 	static uint32_t cont_match0 = 0;
-	static uint8_t vector[8]; // Agregar #define CANT_MOTORES 8
+	static uint8_t vector[8]; // Agregar #define CANT_MOTORES 8. Vector que guarda los estados de cada pin de cada motor (On/Off)
 
 
 	T0IR = ( 1 << IRMR0 );	// Borro flag del Match 0
@@ -31,11 +31,13 @@ void TIMER0_IRQHandler (void)
 
 	SetPINes(0,vector);
 
-	if(cont_match0 == 250 )
+	// ATENCIÓN: DEBE IR EN 250 PERO LO PONEMOS EN 1100!!!!!!!! Quiere decir que arriba de 250 recien hace cuentas
+	//if(cont_match0 == 250 )
+	if(cont_match0 == 1100 )
 		flag_dead_time = 1;
 
 
-	// llego al final del ciclo de 20ms
+	// llego al final del ciclo de 20ms o 2000 cuentas de mach0
 	if(cont_match0 == 2000 )
 	{
 		cont_match0 = 0;

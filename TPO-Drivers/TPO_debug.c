@@ -11,8 +11,8 @@
 // Para debug
 extern int pos_fin[8];
 extern int pos_ini[8];
-int buf [4]={500,1000,1500,1900};
-int buf_2 [4]={54,500,1000,1500};
+int buf [4]={500,1000,54};
+int buf_2 [4]={54,500,1000};
 
 
 void EINT3_IRQHandler( void )
@@ -28,7 +28,7 @@ void EINT3_IRQHandler( void )
 
 	contador++;
 
-	if(contador==4)
+	if(contador==3)
 		contador=0;
 
 

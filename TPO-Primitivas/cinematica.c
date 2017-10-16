@@ -32,6 +32,10 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 	// Solamente incrementar posición cuando estoy arriba del 12% del rendimiento de ciclo de PWM del servo
 	if (flag_dead_time == 1)
 	{
+		// Si la posición final es igual a la posición inicial entonces no se debe mover
+		if ((pos_final == pos_ini)||(pos_motor[motor - 1] == pos_final))
+			return moving = 0;
+
 		// Si la posción inicial es menor a la final
 		if(pos_final > pos_ini)
 		{
@@ -74,7 +78,7 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 			{
 
 				// Si aún no se llegó a la posición final
-				if ( pos_motor[motor - 1] >= pos_final)
+				if ( pos_motor[motor - 1] > pos_final)
 				{
 					temp = pos_ini - velocidad * cont_periodo;
 

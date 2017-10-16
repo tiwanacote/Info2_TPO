@@ -67,7 +67,7 @@ int main(void)
 
 
 
-	/*
+/*
 	 	while( 1 )
 	{
 		cont_periodo =0;
@@ -106,8 +106,8 @@ int main(void)
 		//pos_motor[5]=54;
 	}
 
-	 */
 
+*/
 
 	return 0 ;
 }
