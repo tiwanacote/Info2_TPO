@@ -24,11 +24,12 @@ void EINT3_IRQHandler( void )
 	static int contador = 0;
 	//printf ("HOLA/n");
 
-	pos_fin[6]=buf[contador];
-	pos_ini[6]=buf_2[contador];
+	pos_fin[5]=buf[contador];
+	//pos_ini[6]=buf_2[contador];
 
-	//pos_ini[6]= pos_motor[6]; Por qué no anda esto?
+	pos_ini[5]= pos_motor[5];
 
+	cont_periodo = 0;	// MUY IMORTANTE: Cuando cae un mensaje nuevo se debe volver a hacer calculos desde mover_motor() con contador_periodo = 0
 
 	contador++;
 

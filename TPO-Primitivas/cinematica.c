@@ -33,7 +33,7 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 	if (flag_dead_time == 1)
 	{
 		// Si la posición final es igual a la posición inicial entonces no se debe mover
-		if ((pos_final == pos_ini)||(pos_motor[motor - 1] == pos_final))
+		if ((pos_final == pos_ini)||(pos_motor[motor] == pos_final))
 			return moving = 0;
 
 		// Si la posción inicial es menor a la final
@@ -43,7 +43,7 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 			if (flag_stop[motor] != 1)
 			{
 				// Si aún no se llegó a la posición final
-				if ( pos_motor[motor - 1] < pos_final)
+				if ( pos_motor[motor] < pos_final)
 				{
 
 					temp = pos_ini + velocidad * cont_periodo;
@@ -56,7 +56,7 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 						moving = 0;
 					}
 
-					pos_motor[motor - 1] = temp; // Escribo en el vector pos_motor[] que usara TIMER0_IRQHandler
+					pos_motor[motor] = temp; // Escribo en el vector pos_motor[] que usara TIMER0_IRQHandler
 				}
 				// Si se llega
 				else
@@ -78,7 +78,7 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 			{
 
 				// Si aún no se llegó a la posición final
-				if ( pos_motor[motor - 1] > pos_final)
+				if ( pos_motor[motor] > pos_final)
 				{
 					temp = pos_ini - velocidad * cont_periodo;
 
@@ -90,7 +90,7 @@ bool mover_motor(uint8_t motor , uint32_t pos_ini , uint32_t pos_final , uint32_
 						moving = 0;
 					}
 
-					pos_motor[motor - 1] = temp; // Escribo en el vector pos_motor[] que usara TIMER0_IRQHandler
+					pos_motor[motor] = temp; // Escribo en el vector pos_motor[] que usara TIMER0_IRQHandler
 				}
 				// Si se llega
 				else
