@@ -32,8 +32,8 @@ void TIMER0_IRQHandler (void)
 	SetPINes(0,vector);
 
 	// ATENCIÓN: DEBE IR EN 250 PERO LO PONEMOS EN 1100!!!!!!!! Quiere decir que arriba de 250 recien hace cuentas
-	if(cont_match0 == 250 )
-	//if(cont_match0 == 1100 )
+	//if(cont_match0 == 250 )
+	if(cont_match0 == 1100 )
 		flag_dead_time = 1;
 
 

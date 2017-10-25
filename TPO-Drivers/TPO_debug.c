@@ -13,7 +13,7 @@
 extern int pos_fin[8];
 extern int pos_ini[8];
 extern int is_moving;
-int buf [4]={54,144,240}; //0°,90°,180°
+int buf [4]={100,150,1000}; //-90°,0°,90°
 //int buf_2 [4]={54,500,1000};
 
 
@@ -28,6 +28,8 @@ void EINT3_IRQHandler( void )
 	//pos_ini[6]=buf_2[contador];
 
 	pos_ini[5]= pos_motor[5];
+
+	printf("BOTON presionado. Posicion: %d \n",pos_motor[5]);
 
 	cont_periodo = 0;	// MUY IMORTANTE: Cuando cae un mensaje nuevo se debe volver a hacer calculos desde mover_motor() con contador_periodo = 0
 
