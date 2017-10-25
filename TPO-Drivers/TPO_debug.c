@@ -13,8 +13,8 @@
 extern int pos_fin[8];
 extern int pos_ini[8];
 extern int is_moving;
-int buf [4]={500,1000,54};
-int buf_2 [4]={54,500,1000};
+int buf [4]={54,144,240}; //0°,90°,180°
+//int buf_2 [4]={54,500,1000};
 
 
 void EINT3_IRQHandler( void )

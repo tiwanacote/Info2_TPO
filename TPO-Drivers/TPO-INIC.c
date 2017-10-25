@@ -94,11 +94,11 @@ void Inicializar_Timer(void)
 
 	PCONP |= 1 << 1 ;
 	//PCLKSEL0 |= 0 << 2 ;
-	PCLKSEL0 &= (~(3 << 0)) ;
-	PCLKSEL0 |= 1 << 0 ;    //
+	PCLKSEL0 &= (~(3 << 2)) ;
+	PCLKSEL0 |= 1 << 2 ;    //
 	//PCLKSEL0 |= 3 << 0 ;    //
 
-	T0MR0 = 0x000409; //0x000102;  //0x7fffff;		// Configuro el tiempo del match 0 (Número de cuenta)
+	T0MR0 = 0x0003E8;//0x000409; //0x000102;  //0x7fffff;		// Configuro el tiempo del match 0 (Número de cuenta) para que de frecuencia de 50Hz
 
 	T0MCR  = ( ( 1 << MR0I ) | ( 1 << MR0R ) | ( 0 << MR0S ) ) ; // Mach0 salta la interrupción y resetea
 
