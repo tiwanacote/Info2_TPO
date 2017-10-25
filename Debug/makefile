@@ -11,6 +11,7 @@ RM := rm -rf
 -include TPO-Primitivas/subdir.mk
 -include TPO-Drivers/subdir.mk
 -include TPO-Aplicacion/subdir.mk
+-include .metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -25,25 +26,25 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: TPO_semihosted.axf
+all: TPO.axf
 
 # Tool invocations
-TPO_semihosted.axf: $(OBJS) $(USER_OBJS)
+TPO.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -Xlinker -Map="TPO_semihosted.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "TPO_semihosted_Debug.ld" -o "TPO_semihosted.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -Xlinker -Map="TPO.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "TPO_Debug.ld" -o "TPO.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) TPO_semihosted.axf
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) TPO.axf
 	-@echo ' '
 
 post-build:
 	-@echo 'Performing post-build steps'
-	-arm-none-eabi-size "TPO_semihosted.axf"; # arm-none-eabi-objcopy -v -O binary "TPO_semihosted.axf" "TPO_semihosted.bin" ; # checksum -p LPC1769 -d "TPO_semihosted.bin";
+	-arm-none-eabi-size "TPO.axf"; # arm-none-eabi-objcopy -v -O binary "TPO.axf" "TPO.bin" ; # checksum -p LPC1769 -d "TPO.bin";
 	-@echo ' '
 
 .PHONY: all clean dependents
